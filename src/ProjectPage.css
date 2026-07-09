@@ -1,0 +1,287 @@
+/* ─── BASE ───────────────────────────────────────────────────────────────── */
+.pp-page {
+  background: #0D0D0D;
+  min-height: 100vh;
+  color: #F5F5F0;
+}
+
+/* ─── NAVBAR ─────────────────────────────────────────────────────────────── */
+.pp-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  height: 64px;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.pp-nav__logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #C8FF00;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.pp-nav__back {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: #666;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.pp-nav__back:hover {
+  color: #F5F5F0;
+}
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.pp-hero {
+  padding: 10rem clamp(1.5rem, 5vw, 4rem) 5rem;
+  max-width: 860px;
+}
+
+.pp-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pp-hero__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pp-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  border: 1px solid #333;
+  padding: 0.2rem 0.6rem;
+}
+
+.pp-hero__year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  color: #444;
+  letter-spacing: 0.06em;
+}
+
+.pp-hero__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: #F5F5F0;
+  margin: 0 0 1rem;
+}
+
+.pp-hero__client {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.pp-hero__cta {
+  display: inline-block;
+}
+
+/* ─── GALLERIA ───────────────────────────────────────────────────────────── */
+.pp-gallery {
+  padding: 0 clamp(1.5rem, 5vw, 4rem) 5rem;
+}
+
+.pp-gallery__main {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid #222;
+  margin-bottom: 1rem;
+}
+
+.pp-gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.pp-gallery__thumbs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pp-gallery__thumb {
+  width: 100px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid #333;
+  background: #111;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s;
+}
+
+.pp-gallery__thumb:hover {
+  border-color: #666;
+}
+
+.pp-gallery__thumb.active {
+  border-color: #C8FF00;
+}
+
+.pp-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── CONTENUTO ──────────────────────────────────────────────────────────── */
+.pp-content {
+  padding: 0 clamp(1.5rem, 5vw, 4rem) 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 5rem;
+  max-width: 1100px;
+}
+
+.pp-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pp-block__label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C8FF00;
+}
+
+.pp-block__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #888;
+  line-height: 1.8;
+}
+
+.pp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ─── PREV / NEXT ────────────────────────────────────────────────────────── */
+.pp-prevnext {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #1a1a1a;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.pp-prevnext__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.pp-prevnext__item:hover {
+  opacity: 0.7;
+}
+
+.pp-prevnext__item--next {
+  text-align: right;
+}
+
+.pp-prevnext__dir {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.pp-prevnext__name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F5F5F0;
+  letter-spacing: -0.02em;
+}
+
+/* ─── 404 ────────────────────────────────────────────────────────────────── */
+.pp-notfound {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: #0D0D0D;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #888;
+}
+
+/* ─── PULSANTI (speculari ad App.css) ───────────────────────────────────── */
+.btn {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn--primary {
+  background: #C8FF00;
+  color: #0D0D0D;
+}
+
+.btn--primary:hover {
+  background: #b8ef00;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .pp-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .pp-prevnext {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .pp-prevnext__item--next {
+    text-align: left;
+  }
+}
