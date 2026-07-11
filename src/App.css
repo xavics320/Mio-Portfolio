@@ -100,7 +100,7 @@ body {
 .navbar__links a.active {
   color: #C8FF00;
 }
-
+/* ─── LANGUAGE SWITCHER ─────────────────────────────────────────────────── */
 .navbar__lang {
   display: flex;
   gap: 0.4rem;
@@ -179,7 +179,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   padding: 80px clamp(1.5rem, 5vw, 4rem) 0;
+  text-align: left;
 }
 
 .hero__label {
@@ -301,8 +303,8 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #555555;
-  border: 1px solid #3a3a3a;
+  color: #555;
+  border: 1px solid #333;
   padding: 0.2rem 0.6rem;
 }
 
@@ -337,7 +339,8 @@ body {
 /* ─── CHI SONO ───────────────────────────────────────────────────────────── */
 .about {
   padding: 8rem clamp(1.5rem, 5vw, 4rem);
-  background: #111;
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(2px);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -351,6 +354,7 @@ body {
   color: #F5F5F0;
   margin: 0 0 1.5rem;
   line-height: 1.1;
+  text-align: left;
 }
 
 .about__bio {
@@ -359,6 +363,7 @@ body {
   color: #888;
   line-height: 1.8;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 .about__github-link {
@@ -394,104 +399,6 @@ body {
   padding: 0.4rem 1rem;
 }
 
-/* ─── PROCESSO ───────────────────────────────────────────────────────────── */
-.process {
-  padding: 8rem clamp(1.5rem, 5vw, 4rem);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
- 
-.process__header {
-  position: sticky;
-  top: 6rem;
-}
- 
-.process__title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #F5F5F0;
-  margin: 0 0 1.25rem;
-  line-height: 1.1;
-}
- 
-.process__sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #888;
-  line-height: 1.8;
-  max-width: 38ch;
-}
- 
-/* timeline */
-.process__steps {
-  display: flex;
-  flex-direction: column;
-}
- 
-.process-step {
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 1.5rem;
-  padding-bottom: 3rem;
-}
- 
-.process-step__left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 4px;
-}
- 
-.process-step__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #C8FF00;
-  flex-shrink: 0;
-  box-shadow: 0 0 8px #C8FF0066;
-}
- 
-.process-step__line {
-  width: 1px;
-  flex: 1;
-  background: linear-gradient(to bottom, #C8FF00 0%, #333 100%);
-  margin-top: 8px;
-  min-height: 40px;
-}
- 
-.process-step__content {
-  padding-bottom: 0.5rem;
-}
- 
-.process-step__number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #C8FF00;
-  display: block;
-  margin-bottom: 0.4rem;
-}
- 
-.process-step__title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #F5F5F0;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.6rem;
-}
- 
-.process-step__desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.92rem;
-  color: #777;
-  line-height: 1.75;
-}
 /* ─── CONTATTI ───────────────────────────────────────────────────────────── */
 .contact {
   padding: 8rem clamp(1.5rem, 5vw, 4rem);
@@ -521,6 +428,7 @@ body {
   flex-direction: column;
   gap: 1.25rem;
   max-width: 520px;
+  align-items: flex-start;
 }
 
 .contact__input,
@@ -533,7 +441,8 @@ body {
   padding: 0.85rem 1rem;
   outline: none;
   transition: border-color 0.2s;
-  width: 100%;
+  width: 520px;
+  max-width: 100%;
 }
 
 .contact__input:focus,
@@ -557,6 +466,7 @@ body {
   padding-top: 2rem;
   border-top: 1px solid #222;
   display: flex;
+  justify-content: flex-end;
   gap: 2rem;
 }
 
@@ -589,6 +499,112 @@ body {
 .footer span:first-child { color: #444; }
 .footer span:last-child  { color: #333; }
 
+/* ─── PROCESSO ───────────────────────────────────────────────────────────── */
+.process {
+  padding: 8rem clamp(1.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.process__header {
+  position: sticky;
+  top: 6rem;
+}
+
+.process__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #F5F5F0;
+  margin: 0 0 1.25rem;
+  line-height: 1.1;
+}
+
+.process__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #888;
+  line-height: 1.8;
+  max-width: 38ch;
+}
+
+/* timeline */
+.process__steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.process-step__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.process-step__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #C8FF00;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px #C8FF0066;
+}
+
+.process-step__line {
+  width: 1px;
+  flex: 1;
+  background: linear-gradient(to bottom, #C8FF00 0%, #333 100%);
+  margin-top: 8px;
+  min-height: 40px;
+}
+
+.process-step__content {
+  padding-bottom: 0.5rem;
+}
+
+.process-step__number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #C8FF00;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.process-step__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F5F5F0;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+}
+
+.process-step__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: #777;
+  line-height: 1.75;
+}
+
+/* ─── MOBILE BG FALLBACK (Three.js disattivato) ──────────────────────────── */
+@media (max-width: 767px) {
+  body {
+    background: radial-gradient(ellipse at 60% 20%, #1a2010 0%, #0D0D0D 60%);
+  }
+}
+
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .about {
@@ -601,5 +617,13 @@ body {
 
   .navbar__links {
     gap: 1.25rem;
+  }
+
+  .process {
+    grid-template-columns: 1fr;
+  }
+
+  .process__header {
+    position: static;
   }
 }

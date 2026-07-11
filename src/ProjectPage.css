@@ -1,6 +1,6 @@
 /* ─── BASE ───────────────────────────────────────────────────────────────── */
 .pp-page {
-  background: #0D0D0D;
+  background: #0D0e0e;
   min-height: 100vh;
   color: #F5F5F0;
 }
@@ -111,15 +111,16 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #111;
-  border: 1px solid #222;
+  background: #ffffff;
+  border: 3px solid #C8FF00;
   margin-bottom: 1rem;
 }
 
 .pp-gallery__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
   transition: opacity 0.3s ease;
 }

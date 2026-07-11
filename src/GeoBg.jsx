@@ -13,6 +13,9 @@ export default function GeoBg() {
     const el = mountRef.current;
     if (!el) return;
 
+    // Disattiva su schermi stretti — Three.js è pesante su mobile
+    if (window.innerWidth < 768) return;
+
     /* ── SCENE SETUP ─────────────────────────────────────────────────── */
     const scene = new THREE.Scene();
 
@@ -37,7 +40,7 @@ export default function GeoBg() {
       color: 0xc8ff00,
       wireframe: true,
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.10,
     });
     const meshMain = new THREE.Mesh(geoMain, matWire);
     scene.add(meshMain);
@@ -48,22 +51,22 @@ export default function GeoBg() {
       color: 0xc8ff00,
       wireframe: true,
       transparent: true,
-      opacity: 0.07,
+      opacity: 0.04,
     });
     const meshBack = new THREE.Mesh(geoBack, matBack);
     scene.add(meshBack);
 
     /* ── PIANI PIATTI (triangoli grandi come nell'immagine) ──────────── */
     const planeMat = new THREE.MeshBasicMaterial({
-      color: 0x1a1a0a,
+      color: 0x111100,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.35,
     });
     const planeEdgeMat = new THREE.LineBasicMaterial({
       color: 0xc8ff00,
       transparent: true,
-      opacity: 0.35,
+      opacity: 0.18,
     });
 
     // Crea 10 triangoli grandi posizionati casualmente

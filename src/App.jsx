@@ -13,10 +13,10 @@ const ME = {
   name: "Xavier Paredes",
   role: "Front-End Developer",
   tagline: "Trasformo idee in interfacce che funzionano.",
-  bio: `Sono uno sviluppatore front-end con una passione per il dettaglio e per il design che comunica. Lavoro con React, HTML/CSS e JavaScript per costruire siti web eleganti e performanti — con una particolare attenzione alle piccole imprese e ai brand artigianali che meritano una presenza digitale all'altezza.`,
+  bio: `Sono uno sviluppatore front-end con una passione per il dettaglio e per il design. Lavoro con React, HTML/CSS e JavaScript per costruire siti web eleganti e performanti — con una particolare attenzione alle piccole imprese e ai brand artigianali che meritano una presenza digitale all'altezza.`,
   email: "xavierparedes296@gmail.com",
   github: "https://github.com/xavics320",
-  linkedin: "https://linkedin.com/in/xavierparedes",
+  linkedin: "https://www.linkedin.com/in/xavier-paredes202225/",
 };
 
 export const PROJECTS = [
@@ -27,34 +27,42 @@ export const PROJECTS = [
     tags: ["React", "EmailJS", "CSS"],
     desc: "Sito vetrina con configuratore prodotto multi-step per un brand di ricami personalizzati.",
     // ── Dati pagina dedicata ──────────────────────────────────────────────
-    client: "Isabella Ricami Personalizzati",
-    year: "2025",
-    liveUrl: "https://tuosito.com",
+    client: "Isabella Ricami",
+    year: "2026",
+    liveUrl: "https://isabella-ricami.vercel.app",
     brief: "Isabella aveva bisogno di un sito che raccontasse il suo brand artigianale e permettesse ai clienti di richiedere ricami personalizzati direttamente online, con la possibilità di caricare un'immagine di riferimento.",
     challenge: "Il configuratore prodotto doveva essere intuitivo anche per utenti poco digitali, con upload immagine, anteprima in tempo reale e invio via email — senza back-end.",
     solution: "Ho progettato un flusso multi-step guidato con drag & resize dell'immagine caricata, EmailJS per l'invio diretto e un flow GDPR compliant. Il tutto con un'estetica rosa cipria coerente col brand.",
     photos: [
       // Sostituisci con i percorsi reali delle tue foto
-      "/photos/isabella-1.jpg",
-      "/photos/isabella-2.jpg",
-      "/photos/isabella-3.jpg",
+      "/photos1/Schermata-home.png",
+      "/photos1/Schermata-f1.png",
+      "/photos1/Schermata-f3.png",
+      "/photos1/im4.jpeg",
+      "/photos1/img5.jpeg",
     ],
   },
   {
     id: "02",
     slug: "DKE impianti",
     title: "DKE impianti",
-    tags: ["HTML", "CSS", "JavaScript", "EmailJS"],
+    tags: ["HTML", "CSS", "React","Vite", "EmailJS"],
     desc: "Descrivi brevemente questo progetto — cosa hai costruito e per chi.",
-    client: "Nome Cliente",
-    year: "2025",
-    liveUrl: "#",
-    brief: "Descrivi il brief del cliente — cosa voleva, quale problema aveva da risolvere.",
-    challenge: "Qual era la sfida principale — tecnica, creativa o di comunicazione?",
-    solution: "Come l'hai risolta — scelte di design, tecnologie usate, approccio adottato.",
-    photos: [],
+    client: "DKE impianti",
+    year: "2026",
+    liveUrl: "https://dke-impianti.vercel.app",
+    brief: "DKE impianti aveva bisogno di un sito professionale per presentare i propri servizi e permettere ai clienti di contattarli facilmente.",
+    challenge: "La principale sfida era creare un sito moderno e responsive che rispecchiasse l'identità dell'azienda, con un modulo di contatto funzionante e sicuro.",
+    solution: "Ho sviluppato un sito web con React e Vite, utilizzando HTML e CSS per garantire un design pulito e responsive. Ho integrato EmailJS per il modulo di contatto, assicurando che le richieste dei clienti arrivassero direttamente alla loro email.",
+    photos: [
+      "/photos2/1.png",
+      "/photos2/2.png",
+      "/photos2/3.png",
+      "/photos2/4.jpeg",
+      "/photos2/5.jpg",
+    ],
   },
-  {
+  /*{
     id: "03",
     slug: "progetto-tre",
     title: "Progetto Tre",
@@ -67,7 +75,7 @@ export const PROJECTS = [
     challenge: "La sfida principale del progetto.",
     solution: "Come l'hai risolta.",
     photos: [],
-  },
+  },*/
 ];
 
 const SKILLS = [
@@ -312,7 +320,7 @@ function Footer() {
   const { t } = useLanguage();
   return (
     <footer className="footer">
-      <span>© 2025 {ME.name}</span>
+      <span>© 2026 {ME.name}</span>
       <span>{t.footer.built}</span>
     </footer>
   );
@@ -332,8 +340,9 @@ function HomePage() {
         <Projects />
         <About />
         <Contact />
+         <Footer />
       </main>
-      <Footer />
+     
     </>
   );
 }
