@@ -14,7 +14,7 @@ const ME = {
   role: "Front-End Developer",
   tagline: "Trasformo idee in interfacce che funzionano.",
   bio: `Sono uno sviluppatore front-end con una passione per il dettaglio e per il design. Lavoro con React, HTML/CSS e JavaScript per costruire siti web eleganti e performanti — con una particolare attenzione alle piccole imprese e ai brand artigianali che meritano una presenza digitale all'altezza.`,
-  email: "xavierparedes296@gmail.com",
+  email: "info@xavierparedes-dev.it",
   github: "https://github.com/xavics320",
   //linkedin: "https://www.linkedin.com/in/xavier-paredes202225/",
 };
