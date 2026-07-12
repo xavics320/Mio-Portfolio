@@ -496,8 +496,22 @@ body {
   font-size: 0.8rem;
 }
 
-.footer span:first-child { color: #444; }
-.footer span:last-child  { color: #333; }
+.footer span:first-child { 
+  color: #444; 
+}
+
+.footer span:last-child  { 
+  color: #333; 
+}
+
+.footer a.policy,
+.footer a.cookie {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
+}
 
 /* ─── PROCESSO ───────────────────────────────────────────────────────────── */
 .process {
@@ -606,23 +620,29 @@ body {
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+  }
+ 
+  .navbar__hamburger {
+    display: flex;
+  }
+}
+ 
 @media (max-width: 640px) {
   .about {
     grid-template-columns: 1fr;
   }
-
+ 
   .project-card {
     grid-template-columns: 1fr;
   }
-
-  .navbar__links {
-    gap: 1.25rem;
-  }
-
+ 
   .process {
     grid-template-columns: 1fr;
   }
-
+ 
   .process__header {
     position: static;
   }

@@ -16,7 +16,7 @@ const ME = {
   bio: `Sono uno sviluppatore front-end con una passione per il dettaglio e per il design. Lavoro con React, HTML/CSS e JavaScript per costruire siti web eleganti e performanti — con una particolare attenzione alle piccole imprese e ai brand artigianali che meritano una presenza digitale all'altezza.`,
   email: "xavierparedes296@gmail.com",
   github: "https://github.com/xavics320",
-  linkedin: "https://www.linkedin.com/in/xavier-paredes202225/",
+  //linkedin: "https://www.linkedin.com/in/xavier-paredes202225/",
 };
 
 export const PROJECTS = [
@@ -59,7 +59,7 @@ export const PROJECTS = [
       "/photos2/2.png",
       "/photos2/3.png",
       "/photos2/4.jpeg",
-      "/photos2/5.jpg",
+      "/photos2/5.jpeg",
     ],
   },
   /*{
@@ -308,7 +308,7 @@ function Contact() {
       )}
       <div className="contact__links">
         <a href={`mailto:${ME.email}`}>{ME.email}</a>
-        <a href={ME.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        
         <a href={ME.github} target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </section>
@@ -320,8 +320,10 @@ function Footer() {
   const { t } = useLanguage();
   return (
     <footer className="footer">
-      <span>© 2026 {ME.name}</span>
       <span>{t.footer.built}</span>
+      <span>© 2026 {ME.name}</span>
+      <a href="https://www.iubenda.com/privacy-policy/81915781" className="policy iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy ">Privacy Policy</a>
+      <a href="https://www.iubenda.com/privacy-policy/81915781/cookie-policy" className="cookie iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy ">Cookie Policy</a>
     </footer>
   );
 }
