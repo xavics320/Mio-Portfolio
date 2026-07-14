@@ -15,9 +15,8 @@ export const translations = {
       sectionLabel: "Lavori selezionati",
       openProject: "Apri progetto →",
       items: [
-        "Sito vetrina con configuratore prodotto multi-step per un brand di ricami personalizzati. Estetica rosa cipria, Playfair Display, upload immagine con drag & resize.",
-        "Descrivi brevemente questo progetto — cosa hai costruito, per chi, e qual era la sfida tecnica o creativa principale.",
-        "Descrivi brevemente questo progetto — cosa hai costruito, per chi, e qual era la sfida tecnica o creativa principale.",
+        "Sito vetrina per un'azienda di impianti elettrici con modulo di contatto integrato.",
+        "Un sito vetrina per un ristorante con menu dinamico e prenotazioni online.",
       ],
     },
     about: {
@@ -81,9 +80,8 @@ export const translations = {
       sectionLabel: "Selected work",
       openProject: "Open project →",
       items: [
-        "Showcase site with a multi-step product configurator for a custom embroidery brand. Powder pink aesthetic, Playfair Display, drag & resize image upload.",
-        "Briefly describe this project — what you built, for whom, and the main technical or creative challenge.",
-        "Briefly describe this project — what you built, for whom, and the main technical or creative challenge.",
+        "Showcase site for an electrical systems company with an integrated contact form.",
+        "A showcase site for a restaurant with a dynamic menu and online reservations.",
       ],
     },
     about: {
@@ -147,9 +145,8 @@ export const translations = {
       sectionLabel: "Trabajos seleccionados",
       openProject: "Abrir proyecto →",
       items: [
-        "Sitio vitrina con configurador de producto multi-paso para una marca de bordados personalizados. Estética rosa empolvado, Playfair Display, subida de imagen con drag & resize.",
-        "Describe brevemente este proyecto — qué construiste, para quién y cuál fue el principal reto técnico o creativo.",
-        "Describe brevemente este proyecto — qué construiste, para quién y cuál fue el principal reto técnico o creativo.",
+        "Sitio vitrina para una empresa de instalaciones eléctricas con formulario de contacto integrado.",
+        "Un sitio vitrina para un restaurante con menú dinámico y reservas en línea.",
       ],
     },
     about: {

@@ -20,6 +20,48 @@ const ME = {
 };
 
 export const PROJECTS = [
+  
+  {
+    id: "01",
+    slug: "DKE impianti",
+    title: "DKE impianti",
+    tags: ["HTML", "CSS", "React","Vite", "EmailJS"],
+    desc: "Sito vetrina per un'azienda di impianti elettrici con modulo di contatto integrato.",
+    client: "DKE impianti",
+    year: "2026",
+    liveUrl: "https://dke-impianti.vercel.app",
+    brief: "DKE impianti aveva bisogno di un sito professionale per presentare i propri servizi e permettere ai clienti di contattarli facilmente.",
+    challenge: "La principale sfida era creare un sito moderno e responsive che rispecchiasse l'identità dell'azienda, con un modulo di contatto funzionante e sicuro.",
+    solution: "Ho sviluppato un sito web con React e Vite, utilizzando HTML e CSS per garantire un design pulito e responsive. Ho integrato EmailJS per il modulo di contatto, assicurando che le richieste dei clienti arrivassero direttamente alla loro email.",
+    photos: [
+      "/photos2/1.png",
+      "/photos2/2.png",
+      "/photos2/3.png",
+      "/photos2/4.jpeg",
+      "/photos2/5.jpeg",
+    ],
+  },
+  {
+    id: "02",
+    slug: "Osteria del Grano",
+    title: "Osteria del Grano",
+    tags: ["React", "HTML", "CSS", "API"],
+    desc: "Un sito vetrina per un ristorante con menu dinamico e prenotazioni online.",
+    client: "Osteria del Grano",
+    year: "2025",
+    liveUrl: "https://ristorante1-delta.vercel.app",
+    brief: "Il ristorante voleva un sito che mostrasse il menu aggiornato, permettesse di prenotare tavoli online e raccontasse la storia del locale.",
+    challenge: "Creare un sistema di prenotazioni online che fosse semplice da usare per i clienti e facile da gestire per il ristorante, senza un back-end complesso.",
+    solution: "Ho sviluppato un sito con React che consente di visualizzare il menu in tempo reale tramite un'API e di prenotare tavoli online. Ho implementato un sistema di gestione delle prenotazioni che invia notifiche al ristorante via email.",
+    photos: [
+      "/photos3/1.png",
+      "/photos3/2.png",
+      "/photos3/3.png",
+      "/photos3/4.png",
+      "/photos3/5.jpeg",
+      "/photos3/6.jpeg",
+    ],
+  },
   /*{
     id: "01",
     slug: "isabella-ricami",
@@ -41,40 +83,6 @@ export const PROJECTS = [
       "/photos1/im4.jpeg",
       "/photos1/img5.jpeg",
     ],
-  },*/
-  {
-    id: "01",
-    slug: "DKE impianti",
-    title: "DKE impianti",
-    tags: ["HTML", "CSS", "React","Vite", "EmailJS"],
-    desc: "Descrivi brevemente questo progetto — cosa hai costruito e per chi.",
-    client: "DKE impianti",
-    year: "2026",
-    liveUrl: "https://dke-impianti.vercel.app",
-    brief: "DKE impianti aveva bisogno di un sito professionale per presentare i propri servizi e permettere ai clienti di contattarli facilmente.",
-    challenge: "La principale sfida era creare un sito moderno e responsive che rispecchiasse l'identità dell'azienda, con un modulo di contatto funzionante e sicuro.",
-    solution: "Ho sviluppato un sito web con React e Vite, utilizzando HTML e CSS per garantire un design pulito e responsive. Ho integrato EmailJS per il modulo di contatto, assicurando che le richieste dei clienti arrivassero direttamente alla loro email.",
-    photos: [
-      "/photos2/1.png",
-      "/photos2/2.png",
-      "/photos2/3.png",
-      "/photos2/4.jpeg",
-      "/photos2/5.jpeg",
-    ],
-  },
-  /*{
-    id: "03",
-    slug: "progetto-tre",
-    title: "Progetto Tre",
-    tags: ["React", "API"],
-    desc: "Descrivi brevemente questo progetto — cosa hai costruito e per chi.",
-    client: "Nome Cliente",
-    year: "2025",
-    liveUrl: "#",
-    brief: "Descrivi il brief del cliente.",
-    challenge: "La sfida principale del progetto.",
-    solution: "Come l'hai risolta.",
-    photos: [],
   },*/
 ];
 
