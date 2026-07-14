@@ -20,7 +20,7 @@ const ME = {
 };
 
 export const PROJECTS = [
-  {
+  /*{
     id: "01",
     slug: "isabella-ricami",
     title: "Isabella Ricami",
@@ -41,9 +41,9 @@ export const PROJECTS = [
       "/photos1/im4.jpeg",
       "/photos1/img5.jpeg",
     ],
-  },
+  },*/
   {
-    id: "02",
+    id: "01",
     slug: "DKE impianti",
     title: "DKE impianti",
     tags: ["HTML", "CSS", "React","Vite", "EmailJS"],
@@ -122,36 +122,98 @@ function LogoIntro({ onDone }) {
 /* ─── NAVBAR ────────────────────────────────────────────────────────────── */
 function Navbar({ hidden }) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Blocca scroll body quando menu aperto
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const handleLinkClick = () => setMenuOpen(false);
+
+  const links = [
+    [t.nav.progetti, "#progetti"],
+    [t.nav.processo, "#processo"],
+    [t.nav.chiSono, "#chi-sono"],
+    [t.nav.contatti, "#contatti"],
+  ];
+
   return (
-    <nav className={`navbar${scrolled ? " scrolled" : ""}${hidden ? " hidden" : ""}`}>
-      <Link to="/" className={`navbar__logo${hidden ? " navbar__logo--hidden" : ""}`}>
-        {ME.name}<span>.</span>
-      </Link>
-      <ul className="navbar__links">
-        {[[t.nav.progetti, "#progetti"], [t.nav.processo, "#processo"], [t.nav.chiSono, "#chi-sono"], [t.nav.contatti, "#contatti"]].map(([label, href]) => (
-          <li key={href}><a href={href}>{label}</a></li>
-        ))}
-      </ul>
-      <ul className="navbar__lang">
-        {LANGUAGES.map(code => (
-          <li key={code}>
-            <button
-              type="button"
-              className={`navbar__lang-btn${code === lang ? " active" : ""}`}
-              onClick={() => setLang(code)}
-            >
-              {code.toUpperCase()}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <>
+      <nav className={`navbar${scrolled ? " scrolled" : ""}${hidden ? " hidden" : ""}`}>
+        <Link to="/" className={`navbar__logo${hidden ? " navbar__logo--hidden" : ""}`}>
+          {ME.name}<span>.</span>
+        </Link>
+
+        {/* Link desktop */}
+        <ul className="navbar__links">
+          {links.map(([label, href]) => (
+            <li key={href}><a href={href}>{label}</a></li>
+          ))}
+        </ul>
+
+        {/* Lingua + hamburger affiancati */}
+        <div className="navbar__right">
+          <ul className="navbar__lang">
+            {LANGUAGES.map(code => (
+              <li key={code}>
+                <button
+                  type="button"
+                  className={`navbar__lang-btn${code === lang ? " active" : ""}`}
+                  onClick={() => setLang(code)}
+                >
+                  {code.toUpperCase()}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          {/* Hamburger — solo mobile */}
+          <button
+            className={`navbar__hamburger${menuOpen ? " open" : ""}`}
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Overlay menu mobile */}
+      <div className={`navbar__mobile-menu${menuOpen ? " open" : ""}`}>
+        {/* Lingue anche nel menu mobile */}
+        <ul className="navbar__mobile-lang">
+          {LANGUAGES.map(code => (
+            <li key={code}>
+              <button
+                type="button"
+                className={`navbar__lang-btn${code === lang ? " active" : ""}`}
+                onClick={() => setLang(code)}
+              >
+                {code.toUpperCase()}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <ul className="navbar__mobile-links">
+          {links.map(([label, href]) => (
+            <li key={href}>
+              <a href={href} onClick={handleLinkClick}>{label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
 
@@ -308,7 +370,6 @@ function Contact() {
       )}
       <div className="contact__links">
         <a href={`mailto:${ME.email}`}>{ME.email}</a>
-        
         <a href={ME.github} target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </section>
@@ -322,8 +383,8 @@ function Footer() {
     <footer className="footer">
       <span>{t.footer.built}</span>
       <span>© 2026 {ME.name}</span>
-      <a href="https://www.iubenda.com/privacy-policy/81915781" className="policy iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy ">Privacy Policy</a>
-      <a href="https://www.iubenda.com/privacy-policy/81915781/cookie-policy" className="cookie iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy ">Cookie Policy</a>
+      <a href="https://www.iubenda.com/privacy-policy/81915781" className="policy iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+      <a href="https://www.iubenda.com/privacy-policy/81915781/cookie-policy" className="cookie iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
     </footer>
   );
 }
@@ -342,14 +403,13 @@ function HomePage() {
         <Projects />
         <About />
         <Contact />
-         <Footer />
+        <Footer />
       </main>
-     
     </>
   );
 }
 
-/* ─── APP con ROUTER ────────────────────────────────────────────────────── */
+/* ─── APP ───────────────────────────────────────────────────────────────── */
 export default function App() {
   return (
     <LanguageProvider>
