@@ -1,94 +1,25 @@
 <!doctype html>
-<!-- 
-  MODIFICA 1: lang="it" invece di lang="en"
-  Dice a Google e agli screen reader che il sito è in italiano.
--->
 <html lang="it">
 
 <head>
-  <!-- CHARSET: sempre primo, dice al browser come leggere i caratteri -->
   <meta charset="UTF-8" />
-
-  <!-- 
-    MODIFICA 2: viewport invariato, era già corretto.
-    initial-scale=1.0 impedisce lo zoom automatico su iOS.
-  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ─── PERFORMANCE: preconnect ──────────────────────────────────────────
-    MODIFICA 3: aggiunti preconnect per Google Fonts e iubenda.
-    Cos'è preconnect: dice al browser "preparati a connetterti a questi
-    domini" PRIMA che servano. Risparmia 100-300ms per ogni dominio esterno.
-    crossorigin è richiesto da Google Fonts perché usa CORS.
-  -->
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.iubenda.com" />
 
-  <!-- ─── TITLE ─────────────────────────────────────────────────────────────
-    Invariato — era già ben scritto.
-    Regola: max 60 caratteri, formato "Keyword principale · Brand"
-  -->
+  <!-- Primary meta -->
   <title>Xavier Paredes · Front-End Developer</title>
-
-  <!-- ─── META DESCRIPTION ──────────────────────────────────────────────────
-    MODIFICA 4: riscritta con keyword più specifiche e chiamata all'azione.
-    Cos'è: il testo che appare sotto il titolo nei risultati Google.
-    Non influenza direttamente il ranking ma aumenta il click-through rate.
-    Regola: 120-160 caratteri, deve rispondere alla domanda dell'utente.
-  -->
   <meta name="description" content="Xavier Paredes, sviluppatore front-end a Milano. Creo siti web in React per piccole imprese e artigiani italiani. Design moderno, codice pulito, risultati concreti." />
-
-  <!-- ─── META ROBOTS ────────────────────────────────────────────────────────
-    MODIFICA 5: aggiunto meta robots.
-    Cos'è: istruzione esplicita ai crawler (Googlebot, Bingbot, ecc).
-    index = indicizza questa pagina
-    follow = segui i link che trovi
-    Anche se è il comportamento default, dichiararlo esplicitamente
-    è una best practice perché evita ambiguità.
-  -->
   <meta name="robots" content="index, follow" />
-
-  <!-- ─── CANONICAL URL ─────────────────────────────────────────────────────
-    MODIFICA 6: aggiunto canonical.
-    Cos'è: dice a Google qual è l'URL "ufficiale" di questa pagina.
-    Perché serve: se il tuo sito è raggiungibile sia con www che senza,
-    Google potrebbe penalizzarti per "contenuto duplicato". Il canonical
-    risolve il problema dicendo "questa è la versione che conta".
-  -->
-  <link rel="canonical" href="https://xavierparedes-dev.it/" />
-
-  <!-- ─── AUTHOR & KEYWORDS ─────────────────────────────────────────────────
-    MODIFICA 7: aggiunti author e keywords.
-    Nota: keywords non influenza più il ranking di Google dal 2009,
-    ma è ancora usata da altri motori (Bing, DuckDuckGo) e da
-    aggregatori di contenuto. Metterla non fa mai male.
-  -->
   <meta name="author" content="Xavier Paredes" />
   <meta name="keywords" content="sviluppatore front-end, web developer Milano, siti web React, piccole imprese, artigiani, portfolio" />
-
-  <!-- ─── THEME COLOR ────────────────────────────────────────────────────────
-    MODIFICA 8: aggiunto theme-color.
-    Cos'è: il colore della barra del browser su Android Chrome e Safari iOS.
-    Usiamo il tuo lime #C8FF00 come colore brand — rafforza l'identità
-    visiva anche fuori dal sito.
-  -->
   <meta name="theme-color" content="#C8FF00" />
+  <link rel="canonical" href="https://xavierparedes-dev.it/" />
 
-  <!-- ─── OPEN GRAPH ─────────────────────────────────────────────────────────
-    MODIFICA 9: aggiunti tag Open Graph.
-    Cos'è Open Graph: protocollo creato da Facebook, usato da LinkedIn,
-    WhatsApp, Telegram, Slack per generare l'anteprima quando condividi
-    un link. Senza questi tag la condivisione mostra solo URL e niente altro.
-    
-    og:type     = tipo di contenuto (website per homepage)
-    og:url      = URL canonico della pagina
-    og:title    = titolo che appare nell'anteprima
-    og:description = descrizione nell'anteprima (può differire dal meta description)
-    og:image    = immagine di anteprima — IMPORTANTE: minimo 1200x630px
-    og:locale   = lingua e paese (it_IT = italiano, Italia)
-    og:site_name = nome del sito
-  -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xavierparedes-dev.it/" />
   <meta property="og:title" content="Xavier Paredes · Front-End Developer" />
@@ -99,52 +30,96 @@
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="Xavier Paredes · Portfolio" />
 
-  <!-- ─── TWITTER CARDS ─────────────────────────────────────────────────────
-    MODIFICA 10: aggiunte Twitter Cards.
-    Cos'è: simile a Open Graph ma specifico per X (Twitter).
-    twitter:card = "summary_large_image" mostra l'immagine grande
-    twitter:creator = il tuo handle Twitter (aggiornalo se ce l'hai)
-    Nota: se non hai Twitter, queste tag non fanno danni ma non servono.
-    Le includo perché sono best practice e altri tool le leggono.
-  -->
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://xavierparedes-dev.it/" />
   <meta name="twitter:title" content="Xavier Paredes · Front-End Developer" />
   <meta name="twitter:description" content="Creo siti web in React per piccole imprese e artigiani italiani." />
   <meta name="twitter:image" content="https://xavierparedes-dev.it/og-image.jpg" />
 
-  <!-- ─── FAVICON ───────────────────────────────────────────────────────────
-    MODIFICA 11: aggiunto apple-touch-icon e favicon PNG di fallback.
-    Cos'è apple-touch-icon: l'icona che appare quando salvi il sito
-    nella home screen di iPhone/iPad.
-    Cos'è favicon.ico: fallback per browser vecchi che non supportano SVG.
-    Idealmente dovresti avere: favicon.svg + favicon.ico + apple-touch-icon.png
-  -->
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="WebDevXP" />
-<link rel="manifest" href="/site.webmanifest" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
 
+  <!-- ── SCHEMA.ORG: Person ────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://xavierparedes-dev.it/#xavier",
+    "name": "Xavier Paredes",
+    "jobTitle": "Front-End Developer",
+    "description": "Sviluppatore front-end specializzato in React per piccole imprese e artigiani italiani.",
+    "url": "https://xavierparedes-dev.it",
+    "email": "info@xavierparedes-dev.it",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Milano",
+      "addressCountry": "IT"
+    },
+    "knowsAbout": ["React", "JavaScript", "HTML", "CSS", "Figma", "UI/UX Design"],
+    "sameAs": [
+      "https://github.com/xavics320",
+      "https://www.linkedin.com/in/xavier-paredes202225/"
+    ],
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://xavierparedes-dev.it/og-image.jpg",
+      "width": 1200,
+      "height": 630
+    }
+  }
+  </script>
 
-  <!-- ─── IUBENDA ───────────────────────────────────────────────────────────
-    MODIFICA 12: spostati gli script iubenda in fondo al <head>
-    e aggiunto defer dove possibile.
-    
-    Cos'è defer: dice al browser "scarica questo script in background
-    ma non bloccare il rendering della pagina". Lo script viene eseguito
-    solo dopo che il DOM è pronto.
-    
-    ATTENZIONE: il primo script iubenda (embeds) non supporta defer
-    perché deve essere disponibile prima del rendering per mostrare
-    il banner cookie. Il secondo invece può avere defer.
-    
-    Perché li ho spostati in fondo al <head>: i browser processano
-    il <head> dall'alto verso il basso. Mettendo prima preconnect,
-    title, meta e canonical, diamo priorità alle informazioni
-    più importanti per il crawler.
-  -->
+  <!-- ── SCHEMA.ORG: WebSite ──────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://xavierparedes-dev.it/#website",
+    "name": "Xavier Paredes · Portfolio",
+    "url": "https://xavierparedes-dev.it",
+    "description": "Portfolio di Xavier Paredes, sviluppatore front-end a Milano.",
+    "inLanguage": "it-IT",
+    "author": {
+      "@type": "Person",
+      "@id": "https://xavierparedes-dev.it/#xavier"
+    }
+  }
+  </script>
+
+  <!-- ── SCHEMA.ORG: Portfolio progetti ──────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Portfolio di Xavier Paredes",
+    "description": "Progetti web realizzati da Xavier Paredes, front-end developer.",
+    "url": "https://xavierparedes-dev.it/#progetti",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "DKE Impianti",
+          "description": "Sito web professionale per azienda di impianti elettrici. Sviluppato con React, Vite e EmailJS.",
+          "url": "https://dke-impianti.vercel.app",
+          "author": {
+            "@type": "Person",
+            "@id": "https://xavierparedes-dev.it/#xavier"
+          },
+          "dateCreated": "2026",
+          "programmingLanguage": ["React", "JavaScript", "CSS", "HTML"]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Iubenda — in fondo al head per non bloccare il rendering -->
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/7ea5f1e6-3737-4e81-995f-e21ab60f3fc0.js"></script>
   <script defer type="text/javascript">
     (function (w, d) {
@@ -163,18 +138,8 @@
 </head>
 
 <body>
-  <!-- 
-    Il div #root è dove React monta l'intera applicazione.
-    Non modificare — è necessario per il funzionamento di React.
-  -->
   <div id="root"></div>
-
-  <!-- 
-    Lo script principale di Vite — carica React e tutta l'app.
-    type="module" è moderno ES6, supportato da tutti i browser recenti.
-  -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
-
