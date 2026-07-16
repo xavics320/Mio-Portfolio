@@ -23,7 +23,7 @@ export const PROJECTS = [
   
   {
     id: "01",
-    slug: "DKE impianti",
+    slug: "dke-impianti",
     title: "DKE impianti",
     tags: ["HTML", "CSS", "React","Vite", "EmailJS"],
     desc: "Sito vetrina per un'azienda di impianti elettrici con modulo di contatto integrato.",
@@ -43,7 +43,7 @@ export const PROJECTS = [
   },
   {
     id: "02",
-    slug: "Osteria del Grano",
+    slug: "osteria-del-grano",
     title: "Osteria del Grano",
     tags: ["React", "HTML", "CSS", "API"],
     desc: "Un sito vetrina per un ristorante con menu dinamico e prenotazioni online.",

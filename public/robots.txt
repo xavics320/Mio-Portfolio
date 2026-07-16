@@ -1,0 +1,23 @@
+# robots.txt — Istruzioni per i crawler
+# Dove va: cartella public/ del progetto
+# Risultato: accessibile su https://xavierparedes-dev.it/robots.txt
+#
+# Cos'è User-agent: il nome del crawler a cui si applicano le regole
+# * significa "tutti i crawler" (Googlebot, Bingbot, ecc.)
+
+User-agent: *
+
+# Allow: / dice a tutti i crawler che possono visitare tutto il sito.
+# Per un portfolio pubblico non abbiamo nulla da nascondere.
+Allow: /
+
+# Disallow vuoto = nessuna restrizione aggiuntiva.
+# Se in futuro aggiungessi una /admin/ o /dashboard/, scriveresti:
+# Disallow: /admin/
+Disallow:
+
+# Sitemap: indica ai crawler dove trovare la mappa del sito.
+# Questo è il collegamento più importante del file — senza questa riga
+# Google deve scoprire la sitemap da solo (o tu devi dirglielo
+# manualmente da Google Search Console).
+Sitemap: https://xavierparedes-dev.it/sitemap.xml

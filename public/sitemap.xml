@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP.XML — Mappa del sito per i crawler
+  
+  Dove va: cartella public/ del progetto
+  Risultato: accessibile su https://xavierparedes-dev.it/sitemap.xml
+  
+  xmlns: dichiara il vocabolario XML usato — obbligatorio per la sitemap
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!--
+    PAGINA 1: Homepage
+    priority 1.0 = massima importanza (riservata solo alla homepage)
+    changefreq monthly = aggiorniamo il sito circa ogni mese
+    lastmod = data dell'ultima modifica significativa
+  -->
+  <url>
+    <loc>https://xavierparedes-dev.it/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!--
+    PAGINA 2: Progetto DKE Impianti
+    priority 0.8 = alta importanza (pagine di contenuto principale)
+    changefreq yearly = il case study non cambia spesso
+    
+    NOTA: quando aggiungi nuovi progetti, duplica questo blocco <url>
+    e aggiorna loc, lastmod e il titolo nel commento.
+  -->
+  <url>
+    <loc>https://xavierparedes-dev.it/progetti/dke-impianti</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
