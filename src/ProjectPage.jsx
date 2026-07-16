@@ -67,22 +67,35 @@ export default function ProjectPage({ projects }) {
           <div className="pp-gallery__main">
             <img
               src={project.photos[activePhoto]}
-              alt={`${project.title} screenshot ${activePhoto + 1}`}
+              alt={`${project.title} — screenshot ${activePhoto + 1} di ${project.photos.length}`}
               className="pp-gallery__img"
+              width="1280"
+              height="720"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
           {/* thumbnails */}
           {project.photos.length > 1 && (
             <div className="pp-gallery__thumbs">
               {project.photos.map((src, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActivePhoto(i)}
-                  className={`pp-gallery__thumb${i === activePhoto ? " active" : ""}`}
-                >
-                  <img src={src} alt={`thumb ${i + 1}`} />
-                </button>
-              ))}
+              <button
+              key={i}
+              onClick={() => setActivePhoto(i)}
+              className={`pp-gallery__thumb${i === activePhoto ? " active" : ""}`}
+              aria-label={`Visualizza screenshot ${i + 1}`}
+          >
+            <img
+              src={src}
+              alt={`${project.title} — anteprima ${i + 1}`}
+              width="160"
+              height="90"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+        ))}
             </div>
           )}
         </section>
