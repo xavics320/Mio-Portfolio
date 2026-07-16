@@ -58,6 +58,7 @@ export const PROJECTS = [
       "/photos3/2.webp",
       "/photos3/3.webp",
       "/photos3/4.webp",
+      "/photos3/5.webp",
       "/photos3/6.webp",
     ],
   },
