@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useLanguage } from "./i18n/useLanguage";
+import { setDocumentMeta } from "./useDocumentMeta";
+import { getProjectMeta } from "./seo";
 import "./ProjectPage.css";
 
 export default function ProjectPage({ projects }) {
   const { slug } = useParams();
-  const navigate = useNavigate();
   const { t } = useLanguage();
   const pp = t.projectPage;
 
@@ -19,6 +20,13 @@ export default function ProjectPage({ projects }) {
 
   // Scroll in cima ad ogni cambio progetto
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+
+  // Meta tag dedicati per pagina — senza questo, ogni progetto
+  // condividerebbe title/description/canonical della homepage.
+  useEffect(() => {
+    if (!project) return;
+    setDocumentMeta(getProjectMeta(project));
+  }, [project]);
 
   // 404 se slug non esiste
   if (!project) {
@@ -72,7 +80,7 @@ export default function ProjectPage({ projects }) {
               width="1280"
               height="720"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
             />
           </div>

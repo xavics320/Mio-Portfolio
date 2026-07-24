@@ -37,4 +37,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- PAGINA 3: Progetto Osteria del Grano -->
+  <url>
+    <loc>https://xavierparedes-dev.it/progetti/osteria-del-grano</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import { BrowserRouter, Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import GeoBg from "./GeoBg";
 import ProjectPage from "./ProjectPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { LANGUAGES } from "./i18n/translations";
 import { useLanguage } from "./i18n/useLanguage";
+import { setDocumentMeta } from "./useDocumentMeta";
+import { HOME_META } from "./seo";
 import "./App.css";
 
 /* ─── DATI ──────────────────────────────────────────────────────────────── */
@@ -16,7 +18,6 @@ const ME = {
   bio: `Sono uno sviluppatore front-end con una passione per il dettaglio e per il design. Lavoro con React, HTML/CSS e JavaScript per costruire siti web eleganti e performanti — con una particolare attenzione alle piccole imprese e ai brand artigianali che meritano una presenza digitale all'altezza.`,
   email: "info@xavierparedes-dev.it",
   github: "https://github.com/xavics320",
-  //linkedin: "https://www.linkedin.com/in/xavier-paredes202225/",
 };
 
 export const PROJECTS = [
@@ -62,28 +63,6 @@ export const PROJECTS = [
       "/photos3/6.webp",
     ],
   },
-  /*{
-    id: "01",
-    slug: "isabella-ricami",
-    title: "Isabella Ricami",
-    tags: ["React", "EmailJS", "CSS"],
-    desc: "Sito vetrina con configuratore prodotto multi-step per un brand di ricami personalizzati.",
-    // ── Dati pagina dedicata ──────────────────────────────────────────────
-    client: "Isabella Ricami",
-    year: "2026",
-    liveUrl: "https://isabella-ricami.vercel.app",
-    brief: "Isabella aveva bisogno di un sito che raccontasse il suo brand artigianale e permettesse ai clienti di richiedere ricami personalizzati direttamente online, con la possibilità di caricare un'immagine di riferimento.",
-    challenge: "Il configuratore prodotto doveva essere intuitivo anche per utenti poco digitali, con upload immagine, anteprima in tempo reale e invio via email — senza back-end.",
-    solution: "Ho progettato un flusso multi-step guidato con drag & resize dell'immagine caricata, EmailJS per l'invio diretto e un flow GDPR compliant. Il tutto con un'estetica rosa cipria coerente col brand.",
-    photos: [
-      // Sostituisci con i percorsi reali delle tue foto
-      "/photos1/Schermata-home.png",
-      "/photos1/Schermata-f1.png",
-      "/photos1/Schermata-f3.png",
-      "/photos1/im4.jpeg",
-      "/photos1/img5.jpeg",
-    ],
-  },*/
 ];
 
 const SKILLS = [
@@ -400,6 +379,11 @@ function Footer() {
 /* ─── HOME PAGE ─────────────────────────────────────────────────────────── */
 function HomePage() {
   const [introActive, setIntroActive] = useState(true);
+
+  useEffect(() => {
+    setDocumentMeta(HOME_META);
+  }, []);
+
   return (
     <>
       <GeoBg />
@@ -417,16 +401,25 @@ function HomePage() {
   );
 }
 
+/* ─── ROUTES ────────────────────────────────────────────────────────────── */
+// Estratte da App così entry-server.jsx può montarle sotto StaticRouter
+// (per il prerendering) invece che sotto BrowserRouter.
+export function AppRoutes() {
+  return (
+    <LanguageProvider>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/progetti/:slug" element={<ProjectPage projects={PROJECTS} />} />
+      </Routes>
+    </LanguageProvider>
+  );
+}
+
 /* ─── APP ───────────────────────────────────────────────────────────────── */
 export default function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/progetti/:slug" element={<ProjectPage projects={PROJECTS} />} />
-        </Routes>
-      </BrowserRouter>
-    </LanguageProvider>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
