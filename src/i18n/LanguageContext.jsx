@@ -10,17 +10,18 @@ export function LanguageProvider({ children }) {
   const [lang, setLangState] = useState("it");
 
   useEffect(() => {
-    // Lettura una tantum da localStorage/navigator al mount — non può
-    // avvenire durante il render (servirebbe per l'idratazione coerente
-    // col markup prerenderizzato lato server).
+    // Solo localStorage, niente auto-detect da navigator.language: il sito
+    // è prerenderizzato in italiano, quindi cambiare lingua in automatico
+    // al mount per ogni visitatore con browser non italiano (compresi i
+    // bot di test come Lighthouse, che girano in en-US) produce un cambio
+    // di tutto il testo subito dopo il caricamento — un layout shift (CLS)
+    // che penalizza pesantemente il punteggio Performance. La lingua resta
+    // "it" finché l'utente non la cambia manualmente (persistita qui sotto).
     const stored = localStorage.getItem("lang");
-    if (stored && LANGUAGES.includes(stored)) {
+    if (stored && LANGUAGES.includes(stored) && stored !== "it") {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLangState(stored);
-      return;
     }
-    const browserLang = navigator.language?.slice(0, 2);
-    if (LANGUAGES.includes(browserLang)) setLangState(browserLang);
   }, []);
 
   const setLang = (next) => {

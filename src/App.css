@@ -593,7 +593,84 @@ body {
   font-size: 0.8rem;
   color: #555;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
+}
+
+.footer a.policy:hover,
+.footer a.cookie:hover {
+  color: #C8FF00;
+}
+
+.footer a.policy:focus-visible,
+.footer a.cookie:focus-visible {
+  outline: 2px solid #C8FF00;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* ─── FOOTER SOCIAL ──────────────────────────────────────────────────────── */
+
+/*
+  Contenitore icone social — le affianchiamo orizzontalmente
+  con un gap di 1rem tra Instagram e Facebook.
+*/
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*
+  Singolo link icona.
+  
+  color: inherit — l'icona eredita il colore del testo del footer (#444).
+  Così non dobbiamo hardcodare un colore — segue automaticamente
+  il tema del sito.
+  
+  transition: color — animazione fluida al hover.
+  
+  line-height: 0 — rimuove lo spazio extra sotto le icone SVG
+  che i browser aggiungono di default (bug comune).
+*/
+.footer__social-link {
+  color: #555;
+  text-decoration: none;
+  line-height: 0;
+  transition: color 0.2s ease;
+}
+
+/*
+  Hover: colore lime del brand — coerente con il resto del sito.
+  L'icona SVG usa stroke="currentColor" quindi cambia colore
+  automaticamente quando cambia il color del link.
+*/
+.footer__social-link:hover {
+  color: #C8FF00;
+}
+
+/*
+  Focus — accessibilità da tastiera.
+  Quando l'utente naviga con Tab, l'icona mostra un outline visibile.
+  Non rimuovere mai il focus outline — è fondamentale per l'accessibilità.
+*/
+.footer__social-link:focus-visible {
+  outline: 2px solid #C8FF00;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ─── RESPONSIVE FOOTER ──────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .footer {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 }
 
 /* ─── PROCESSO ───────────────────────────────────────────────────────────── */
