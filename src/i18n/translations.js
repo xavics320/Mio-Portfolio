@@ -221,6 +221,13 @@ export const translations = {
 
     footer: { built: "Sviluppato con React" },
 
+    cookieBanner: {
+      text: "Uso cookie analitici per capire come viene usato il sito. Puoi accettarli o rifiutarli.",
+      policyLink: "Scopri di più",
+      accept: "Accetta",
+      reject: "Rifiuta",
+    },
+
     projectPage: {
       allProjects: "← Tutti i progetti",
       client: "Cliente:",
@@ -286,6 +293,13 @@ export const translations = {
       error: "Something went wrong. Try again or email me directly.",
     },
     footer: { built: "Built with React" },
+
+    cookieBanner: {
+      text: "I use analytics cookies to understand how the site is used. You can accept or reject them.",
+      policyLink: "Learn more",
+      accept: "Accept",
+      reject: "Reject",
+    },
     projectPage: {
       allProjects: "← All projects",
       client: "Client:",
@@ -351,6 +365,13 @@ export const translations = {
       error: "Error al enviar. Intenta de nuevo o escríbeme directamente.",
     },
     footer: { built: "Desarrollado con React" },
+
+    cookieBanner: {
+      text: "Utilizo cookies analíticas para entender cómo se usa el sitio. Puedes aceptarlas o rechazarlas.",
+      policyLink: "Saber más",
+      accept: "Aceptar",
+      reject: "Rechazar",
+    },
     projectPage: {
       allProjects: "← Todos los proyectos",
       client: "Cliente:",

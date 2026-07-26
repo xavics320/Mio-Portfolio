@@ -8,6 +8,7 @@ import { LANGUAGES } from "./i18n/translations";
 import { useLanguage } from "./i18n/useLanguage";
 import { setDocumentMeta } from "./useDocumentMeta";
 import { HOME_META } from "./seo";
+import CookieConsentBanner from "./CookieConsentBanner";
 import "./App.css";
 
 /* ─── DATI ──────────────────────────────────────────────────────────────── */
@@ -495,6 +496,7 @@ export function AppRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/progetti/:slug" element={<ProjectPage projects={PROJECTS} />} />
       </Routes>
+      <CookieConsentBanner />
     </LanguageProvider>
   );
 }
