@@ -18,6 +18,12 @@
       'ad_personalization': 'denied'
     });
   </script>
+  <!-- Intro logo solo alla prima visita: vedi LogoIntro in src/App.jsx -->
+  <script>
+    try {
+      if (localStorage.getItem('intro-seen') === '1') document.documentElement.classList.add('intro-seen');
+    } catch (e) {}
+  </script>
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

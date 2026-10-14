@@ -99,6 +99,9 @@ body {
   justify-content: space-between;
   padding: 0 clamp(1.5rem, 5vw, 4rem);
   height: 72px;
+  /* Bordo sempre presente ma trasparente: senza, la transizione partiva
+     dal colore del testo (bianco) e il bordo lampeggiava allo scroll */
+  border-bottom: 1px solid transparent;
   transition: height 0.3s, background 0.3s, border-color 0.3s;
 }
 
@@ -274,7 +277,7 @@ body {
   z-index: 200;
   background: #0D0D0D;
   pointer-events: none;
-  transition: opacity 0.5s ease 0.5s;
+  transition: opacity 0.35s ease 0.2s;
 }
 
 .logo-intro-overlay.moved {
@@ -294,9 +297,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   transition:
-    font-size 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    left 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-intro-text.moved {
@@ -307,6 +310,33 @@ body {
 
 .logo-intro-text span {
   color: #F5F5F0;
+}
+
+.home-main {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.home-main--intro {
+  opacity: 0;
+}
+
+/* Visite successive: niente intro (classe messa da index.html) */
+.intro-seen .logo-intro-overlay {
+  display: none;
+}
+
+.intro-seen .home-main--intro {
+  opacity: 1;
+}
+
+.intro-seen .navbar.hidden {
+  opacity: 1;
+}
+
+.intro-seen .navbar__logo--hidden {
+  visibility: visible;
 }
 
 /* ─── HERO ───────────────────────────────────────────────────────────────── */

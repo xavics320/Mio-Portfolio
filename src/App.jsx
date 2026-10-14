@@ -74,11 +74,27 @@ const SKILLS = [
 ];
 
 /* ─── LOGO INTRO ────────────────────────────────────────────────────────── */
+// Mostrata solo alla prima visita. Lo script inline in index.html legge la
+// stessa chiave e aggiunge .intro-seen a <html> prima del primo paint, così
+// chi torna non vede nemmeno un frame dell'overlay.
+const INTRO_KEY = "intro-seen";
+
 function LogoIntro({ onDone }) {
   const [phase, setPhase] = useState("center");
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase("move"), 1100);
-    const t2 = setTimeout(() => { setPhase("done"); onDone(); }, 1900);
+    let seen = false;
+    try {
+      seen = localStorage.getItem(INTRO_KEY) === "1";
+      localStorage.setItem(INTRO_KEY, "1");
+    } catch { /* storage bloccato: mostra l'intro */ }
+    if (seen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPhase("done");
+      onDone();
+      return;
+    }
+    const t1 = setTimeout(() => setPhase("move"), 600);
+    const t2 = setTimeout(() => { setPhase("done"); onDone(); }, 1150);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
   if (phase === "done") return null;
@@ -465,7 +481,7 @@ function HomePage() {
       <CodeBg />
       <LogoIntro onDone={() => setIntroActive(false)} />
       <Navbar hidden={introActive} />
-      <main style={{ position: "relative", zIndex: 1, opacity: introActive ? 0 : 1, transition: "opacity 0.5s ease" }}>
+      <main className={`home-main${introActive ? " home-main--intro" : ""}`}>
         <Hero />
         <Pricing />
         <Process />
