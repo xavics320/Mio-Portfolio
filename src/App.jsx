@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import emailjs from "@emailjs/browser";
-import GeoBg from "./GeoBg";
+import CodeBg from "./CodeBg";
 import ProjectPage from "./ProjectPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { LANGUAGES } from "./i18n/translations";
@@ -318,13 +317,14 @@ function Contact() {
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = e => {
     e.preventDefault();
-    emailjs
-      .send(
+    // EmailJS caricato solo all'invio: non serve nel bundle iniziale
+    import("@emailjs/browser")
+      .then(({ default: emailjs }) => emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE,
         import.meta.env.VITE_EMAILJS_TEMPLATE,
         form,
         import.meta.env.VITE_EMAILJS_KEY
-      )
+      ))
       .then(() => setSent(true))
       .catch(() => alert(t.contact.error));
   };
@@ -431,14 +431,18 @@ function Footer() {
       <div className="footer__links">
         <a
           href="https://www.iubenda.com/privacy-policy/81915781"
-          className="policy iubenda-white iubenda-noiframe iubenda-embed footer__policy"
+          className="policy footer__policy"
+          target="_blank"
+          rel="noopener noreferrer"
           title="Privacy Policy"
         >
           Privacy Policy
         </a>
         <a
           href="https://www.iubenda.com/privacy-policy/81915781/cookie-policy"
-          className="cookie iubenda-white iubenda-noiframe iubenda-embed footer__policy"
+          className="cookie footer__policy"
+          target="_blank"
+          rel="noopener noreferrer"
           title="Cookie Policy"
         >
           Cookie Policy
@@ -458,7 +462,7 @@ function HomePage() {
 
   return (
     <>
-      <GeoBg />
+      <CodeBg />
       <LogoIntro onDone={() => setIntroActive(false)} />
       <Navbar hidden={introActive} />
       <main style={{ position: "relative", zIndex: 1, opacity: introActive ? 0 : 1, transition: "opacity 0.5s ease" }}>

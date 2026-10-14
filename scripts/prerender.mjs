@@ -4,7 +4,7 @@
 // Va lanciato DOPO "vite build" (client) e "vite build --ssr" (server bundle).
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -12,7 +12,7 @@ const distDir = path.join(root, "dist");
 const ssrDir = path.join(root, "dist-ssr");
 
 const { render, PROJECTS } = await import(
-  path.join(ssrDir, "entry-server.js")
+  pathToFileURL(path.join(ssrDir, "entry-server.js")).href
 );
 
 const template = fs.readFileSync(path.join(distDir, "index.html"), "utf-8");
