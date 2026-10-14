@@ -1,0 +1,158 @@
+/* ─── PREZZI ─────────────────────────────────────────────────────────────── */
+.pricing {
+  padding: 8rem clamp(1.5rem, 5vw, 4rem);
+  text-align: left; /* annulla il text-align: center ereditato da #root (index.css) */
+}
+
+.pricing__header {
+  max-width: 640px;
+  margin-bottom: 3.5rem;
+}
+
+.pricing__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #F5F5F0;
+  margin-bottom: 1.25rem;
+}
+
+.pricing__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #888;
+  max-width: 52ch;
+}
+
+/* Griglia responsive senza media query: le card vanno a capo da sole
+   quando non c'è spazio per 280px ciascuna */
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* ─── CARD ───────────────────────────────────────────────────────────────── */
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 2rem;
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid #2a2a2a;
+}
+
+.plan-card--featured {
+  border-color: #C8FF00;
+  box-shadow: 0 0 0 1px #C8FF00, 0 0 40px #C8FF0014;
+}
+
+.plan-card__badge {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  transform: translateY(-50%);
+  padding: 0.3rem 0.75rem;
+  background: #C8FF00;
+  color: #0D0D0D;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.plan-card__name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #F5F5F0;
+  margin-bottom: 0.5rem;
+}
+
+.plan-card__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #888;
+}
+
+/* Su desktop le card sono affiancate: riservo 3 righe alla descrizione
+   così i prezzi restano sulla stessa linea. Su mobile (card in colonna)
+   non serve e creerebbe solo spazio vuoto. */
+@media (min-width: 960px) {
+  .plan-card__desc {
+    min-height: 4.8em; /* 3 righe × line-height 1.6 */
+  }
+}
+
+.plan-card__price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #F5F5F0;
+  margin: 1.5rem 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.plan-card__price--quote {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  color: #C8FF00;
+}
+
+.plan-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex: 1; /* spinge la CTA in fondo: bottoni allineati tra le card */
+}
+
+.plan-card__feature {
+  position: relative;
+  padding-left: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #bbb;
+}
+
+/* Spunta decorativa in CSS: niente icone extra da scaricare,
+   e gli screen reader leggono solo il testo */
+.plan-card__feature::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 0.45rem;
+  height: 0.8rem;
+  border: solid #C8FF00;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.plan-card__cta {
+  text-align: center;
+}
+
+.btn--ghost.plan-card__cta:hover {
+  border-color: #C8FF00;
+  color: #C8FF00;
+}
+
+.pricing__note {
+  margin-top: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #666;
+  max-width: 70ch;
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import GeoBg from "./GeoBg";
@@ -9,6 +9,8 @@ import { useLanguage } from "./i18n/useLanguage";
 import { setDocumentMeta } from "./useDocumentMeta";
 import { HOME_META } from "./seo";
 import CookieConsentBanner from "./CookieConsentBanner";
+import Pricing from "./components/Pricing/Pricing";
+import { useFadeIn } from "./hooks/useFadeIn";
 import "./App.css";
 
 /* ─── DATI ──────────────────────────────────────────────────────────────── */
@@ -72,22 +74,6 @@ const SKILLS = [
   "UI/UX Sensibility", "Figma",
 ];
 
-/* ─── HOOK: fade-in on scroll ───────────────────────────────────────────── */
-function useFadeIn() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.classList.add("visible"); obs.disconnect(); } },
-      { threshold: 0.12 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return ref;
-}
-
 /* ─── LOGO INTRO ────────────────────────────────────────────────────────── */
 function LogoIntro({ onDone }) {
   const [phase, setPhase] = useState("center");
@@ -128,6 +114,7 @@ function Navbar({ hidden }) {
   const handleLinkClick = () => setMenuOpen(false);
 
   const links = [
+    [t.nav.prezzi, "#prezzi"],
     [t.nav.progetti, "#progetti"],
     [t.nav.processo, "#processo"],
     [t.nav.chiSono, "#chi-sono"],
@@ -476,6 +463,7 @@ function HomePage() {
       <Navbar hidden={introActive} />
       <main style={{ position: "relative", zIndex: 1, opacity: introActive ? 0 : 1, transition: "opacity 0.5s ease" }}>
         <Hero />
+        <Pricing />
         <Process />
         <Projects />
         <About />

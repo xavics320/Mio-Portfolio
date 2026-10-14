@@ -18,6 +18,7 @@ export const LANGUAGES = ["it", "en", "es"];
 export const translations = {
   it: {
     nav: {
+      prezzi: "Prezzi",
       progetti: "Progetti",
       processo: "Come lavoro",
       chiSono: "Chi sono",
@@ -184,7 +185,7 @@ export const translations = {
             "posso chiedere modifiche?" Contenuto utile = SEO migliore.
           */
           title: "Revisioni",
-          desc: "Ti mostro il sito in anteprima e raccoglie il tuo feedback. Sono inclusi due round di revisioni — aggiustiamo insieme finché il risultato è esattamente quello che avevi in mente."
+          desc: "Ti mostro il sito in anteprima e raccolgo il tuo feedback. Le revisioni incluse dipendono dal pacchetto scelto — aggiustiamo insieme finché il risultato è esattamente quello che avevi in mente."
         },
         {
           /*
@@ -195,6 +196,67 @@ export const translations = {
           desc: "Pubblico il sito, configuro il dominio e ti consegno tutto — credenziali, istruzioni e supporto post-lancio. Il tuo sito è online, veloce e pronto a portare nuovi clienti."
         },
       ],
+    },
+
+    pricing: {
+      /*
+        SEZIONE PREZZI — keyword transazionali
+        "prezzi sito web" e "quanto costa un sito web" sono tra le ricerche
+        più frequenti di chi sta per comprare. Prezzi visibili = meno
+        richieste a vuoto e clienti già in target.
+        I numeri (prezzi) NON stanno qui: vivono in src/data/plans.js.
+      */
+      sectionLabel: "Prezzi sito web",
+      title: ["Pacchetti chiari,", "nessuna sorpresa."],
+      sub: "Scegli il pacchetto più adatto alla tua attività. Prezzi trasparenti, tutto incluso — e se hai esigenze particolari, prepariamo insieme un preventivo su misura.",
+      featuredBadge: "Il più scelto",
+      quoteLabel: "Su preventivo",
+      note: "Prezzi una tantum. Nel pacchetto Business dominio, hosting ed email sono inclusi per il primo anno; dal secondo anno il rinnovo è a parte.",
+      plans: {
+        starter: {
+          name: "Starter",
+          desc: "Per chi parte da zero e vuole una presenza online curata.",
+          cta: "Scegli Starter",
+          features: [
+            "Fino a 4 sezioni",
+            "Mockup Figma su misura",
+            "Form contatti (email o WhatsApp)",
+            "Link social integrati",
+            "SEO base + GDPR compliant",
+            "1 revisione",
+            "Consegna in 7 giorni",
+          ],
+        },
+        business: {
+          name: "Business",
+          desc: "Per attività che vogliono un sito completo, veloce e pronto a vendere.",
+          cta: "Scegli Business",
+          features: [
+            "Fino a 7 sezioni",
+            "Mockup Figma su misura",
+            "Form email + WhatsApp",
+            "Email personalizzata, hosting e dominio inclusi (1 anno)",
+            "Google Maps integrata",
+            "Link social integrati",
+            "Ottimizzazione velocità avanzata (Lighthouse 90+)",
+            "SEO ottimizzata + GDPR compliant",
+            "Supporto post-lancio 30 giorni",
+            "3 revisioni",
+            "Consegna in 7 giorni",
+          ],
+        },
+        custom: {
+          name: "Su misura",
+          desc: "Per progetti che richiedono funzionalità specifiche.",
+          cta: "Richiedi un preventivo",
+          features: [
+            "E-commerce",
+            "Funzionalità avanzate",
+            "Integrazioni con servizi esterni",
+            "Tempi e costi concordati insieme",
+          ],
+        },
+      },
     },
 
     contact: {
@@ -245,7 +307,7 @@ export const translations = {
 
   // ─── EN — invariato ────────────────────────────────────────────────────────
   en: {
-    nav: { progetti: "Projects", processo: "How I work", chiSono: "About", contatti: "Contact" },
+    nav: { prezzi: "Pricing", progetti: "Projects", processo: "How I work", chiSono: "About", contatti: "Contact" },
     hero: {
       label: "Front-End Developer · Milan",
       tagline: "Your idea takes shape here.",
@@ -276,9 +338,62 @@ export const translations = {
         { title: "Proposal & Quote", desc: "I send you a detailed quote with everything I'll build, the timeline, and the costs. No surprises halfway through." },
         { title: "Figma Draft", desc: "Before writing a single line of code, I design the site in Figma — colours, typography and page structure. You see the final result before development begins." },
         { title: "Development", desc: "I build the site with React, HTML and CSS — clean code, optimised for speed and compatible with all devices. You get a preview link to follow progress in real time." },
-        { title: "Revisions", desc: "I show you the site preview and collect your feedback. Two rounds of revisions are included — we adjust together until the result is exactly what you had in mind." },
+        { title: "Revisions", desc: "I show you the site preview and collect your feedback. The number of revision rounds depends on your package — we adjust together until the result is exactly what you had in mind." },
         { title: "Go Live", desc: "I publish the site, set up the domain and hand everything over — credentials, instructions and post-launch support." },
       ],
+    },
+    pricing: {
+      sectionLabel: "Pricing",
+      title: ["Clear packages,", "no surprises."],
+      sub: "Pick the package that fits your business. Transparent prices, everything included — and if you have specific needs, we'll put together a custom quote.",
+      featuredBadge: "Most popular",
+      quoteLabel: "Custom quote",
+      note: "One-off prices. In the Business package, domain, hosting and email are included for the first year; renewal from the second year is billed separately.",
+      plans: {
+        starter: {
+          name: "Starter",
+          desc: "For those starting from scratch who want a polished online presence.",
+          cta: "Choose Starter",
+          features: [
+            "Up to 4 sections",
+            "Custom Figma mockup",
+            "Contact form (email or WhatsApp)",
+            "Social media links",
+            "Basic SEO + GDPR compliant",
+            "1 revision",
+            "Delivery in 7 days",
+          ],
+        },
+        business: {
+          name: "Business",
+          desc: "For businesses that want a complete, fast site ready to bring in clients.",
+          cta: "Choose Business",
+          features: [
+            "Up to 7 sections",
+            "Custom Figma mockup",
+            "Email + WhatsApp form",
+            "Custom email, hosting and domain included (1 year)",
+            "Integrated Google Maps",
+            "Social media links",
+            "Advanced speed optimisation (Lighthouse 90+)",
+            "Optimised SEO + GDPR compliant",
+            "30-day post-launch support",
+            "3 revisions",
+            "Delivery in 7 days",
+          ],
+        },
+        custom: {
+          name: "Custom",
+          desc: "For projects that need specific features.",
+          cta: "Request a quote",
+          features: [
+            "E-commerce",
+            "Advanced features",
+            "Third-party integrations",
+            "Timeline and costs agreed together",
+          ],
+        },
+      },
     },
     contact: {
       sectionLabel: "Let's collaborate",
@@ -317,7 +432,7 @@ export const translations = {
 
   // ─── ES — invariato ────────────────────────────────────────────────────────
   es: {
-    nav: { progetti: "Proyectos", processo: "Cómo trabajo", chiSono: "Sobre mí", contatti: "Contacto" },
+    nav: { prezzi: "Precios", progetti: "Proyectos", processo: "Cómo trabajo", chiSono: "Sobre mí", contatti: "Contacto" },
     hero: {
       label: "Desarrollador Front-End · Milán",
       tagline: "Tu idea toma forma aquí.",
@@ -348,9 +463,62 @@ export const translations = {
         { title: "Propuesta & Presupuesto", desc: "Te envío un presupuesto detallado con todo lo que voy a realizar, los tiempos y los costos. Sin sorpresas a mitad de camino." },
         { title: "Boceto en Figma", desc: "Antes de escribir una línea de código, diseño el sitio en Figma — colores, tipografía y estructura de páginas. Ves el resultado final antes del desarrollo." },
         { title: "Desarrollo", desc: "Construyo el sitio con React, HTML y CSS — código limpio, optimizado para velocidad y compatible con todos los dispositivos." },
-        { title: "Revisiones", desc: "Te muestro la vista previa del sitio y recojo tu feedback. Se incluyen dos rondas de revisiones." },
+        { title: "Revisiones", desc: "Te muestro la vista previa del sitio y recojo tu feedback. Las rondas de revisión incluidas dependen del paquete elegido." },
         { title: "Go Live", desc: "Publico el sitio, configuro el dominio y te entrego todo — credenciales, instrucciones y soporte post-lanzamiento." },
       ],
+    },
+    pricing: {
+      sectionLabel: "Precios",
+      title: ["Paquetes claros,", "sin sorpresas."],
+      sub: "Elige el paquete que mejor se adapta a tu negocio. Precios transparentes, todo incluido — y si tienes necesidades especiales, preparamos juntos un presupuesto a medida.",
+      featuredBadge: "El más elegido",
+      quoteLabel: "Bajo presupuesto",
+      note: "Precios de pago único. En el paquete Business, dominio, hosting y email están incluidos el primer año; a partir del segundo año la renovación se paga aparte.",
+      plans: {
+        starter: {
+          name: "Starter",
+          desc: "Para quien empieza de cero y quiere una presencia online cuidada.",
+          cta: "Elegir Starter",
+          features: [
+            "Hasta 4 secciones",
+            "Mockup en Figma a medida",
+            "Formulario de contacto (email o WhatsApp)",
+            "Enlaces a redes sociales",
+            "SEO básico + cumplimiento RGPD",
+            "1 revisión",
+            "Entrega en 7 días",
+          ],
+        },
+        business: {
+          name: "Business",
+          desc: "Para negocios que quieren un sitio completo, rápido y listo para atraer clientes.",
+          cta: "Elegir Business",
+          features: [
+            "Hasta 7 secciones",
+            "Mockup en Figma a medida",
+            "Formulario email + WhatsApp",
+            "Email personalizado, hosting y dominio incluidos (1 año)",
+            "Google Maps integrado",
+            "Enlaces a redes sociales",
+            "Optimización avanzada de velocidad (Lighthouse 90+)",
+            "SEO optimizado + cumplimiento RGPD",
+            "Soporte post-lanzamiento 30 días",
+            "3 revisiones",
+            "Entrega en 7 días",
+          ],
+        },
+        custom: {
+          name: "A medida",
+          desc: "Para proyectos que requieren funcionalidades específicas.",
+          cta: "Pedir presupuesto",
+          features: [
+            "E-commerce",
+            "Funcionalidades avanzadas",
+            "Integraciones con servicios externos",
+            "Tiempos y costos acordados juntos",
+          ],
+        },
+      },
     },
     contact: {
       sectionLabel: "Colaboremos",
