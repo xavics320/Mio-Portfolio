@@ -242,7 +242,7 @@ export const translations = {
             "SEO ottimizzata + GDPR compliant",
             "Supporto post-lancio 30 giorni",
             "3 revisioni",
-            "Consegna in 7 giorni",
+            "Consegna in 10 giorni",
           ],
         },
         custom: {
@@ -379,7 +379,7 @@ export const translations = {
             "Optimised SEO + GDPR compliant",
             "30-day post-launch support",
             "3 revisions",
-            "Delivery in 7 days",
+            "Delivery in 10 days",
           ],
         },
         custom: {
@@ -504,7 +504,7 @@ export const translations = {
             "SEO optimizado + cumplimiento RGPD",
             "Soporte post-lanzamiento 30 días",
             "3 revisiones",
-            "Entrega en 7 días",
+            "Entrega en 10 días",
           ],
         },
         custom: {
