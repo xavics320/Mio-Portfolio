@@ -1,13 +1,14 @@
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { AppRoutes, PROJECTS } from "./App";
-import { resolveMetaForPath } from "./seo";
+import { PLANS } from "./data/plans";
+import { allRoutes } from "./i18n/paths";
+import { resolveMetaForPath, resolveSchemaForPath } from "./seo";
 
-export { PROJECTS };
+// Tutte le route da prerenderizzare, in tutte le lingue
+export const ROUTES = allRoutes(PROJECTS.map(p => p.slug));
 
 // Usato solo dallo script di prerendering (scripts/prerender.mjs), mai in produzione runtime
-// né in Fast Refresh — l'eslint-plugin-react-refresh non si applica qui.
-// eslint-disable-next-line react-refresh/only-export-components
 export function render(url) {
   const appHtml = ReactDOMServer.renderToString(
     <StaticRouter location={url}>
@@ -15,5 +16,6 @@ export function render(url) {
     </StaticRouter>
   );
   const meta = resolveMetaForPath(url, PROJECTS);
-  return { appHtml, meta };
+  const schema = resolveSchemaForPath(url, PROJECTS, PLANS);
+  return { appHtml, meta, schema };
 }

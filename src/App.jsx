@@ -4,11 +4,13 @@ import CodeBg from "./CodeBg";
 import ProjectPage from "./ProjectPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { LANGUAGES } from "./i18n/translations";
+import { localizePath } from "./i18n/paths";
 import { useLanguage } from "./i18n/useLanguage";
 import { setDocumentMeta } from "./useDocumentMeta";
-import { HOME_META } from "./seo";
+import { getHomeMeta } from "./seo";
 import CookieConsentBanner from "./CookieConsentBanner";
 import Pricing from "./components/Pricing/Pricing";
+import Faq from "./components/Faq/Faq";
 import { useFadeIn } from "./hooks/useFadeIn";
 import "./App.css";
 
@@ -22,20 +24,18 @@ const ME = {
   github: "https://github.com/xavics320",
 };
 
+// Dati strutturali dei progetti. I testi (descrizione, brief, sfida,
+// soluzione, categoria) sono tradotti in i18n/translations.js →
+// projects.items[slug].
 export const PROJECTS = [
-  
   {
     id: "01",
     slug: "dke-impianti",
-    title: "DKE impianti",
+    title: "DKE Impianti",
     tags: ["HTML", "CSS", "React","Vite", "EmailJS"],
-    desc: "Sito vetrina per un'azienda di impianti elettrici con modulo di contatto integrato.",
-    client: "DKE impianti",
+    client: "DKE Impianti",
     year: "2026",
     liveUrl: "https://dke-impianti.vercel.app",
-    brief: "DKE impianti aveva bisogno di un sito professionale per presentare i propri servizi e permettere ai clienti di contattarli facilmente.",
-    challenge: "La principale sfida era creare un sito moderno e responsive che rispecchiasse l'identità dell'azienda, con un modulo di contatto funzionante e sicuro.",
-    solution: "Ho sviluppato un sito web con React e Vite, utilizzando HTML e CSS per garantire un design pulito e responsive. Ho integrato EmailJS per il modulo di contatto, assicurando che le richieste dei clienti arrivassero direttamente alla loro email.",
     photos: [
       "/photos2/1.webp",
       "/photos2/2.webp",
@@ -49,13 +49,9 @@ export const PROJECTS = [
     slug: "osteria-del-grano",
     title: "Osteria del Grano",
     tags: ["React", "HTML", "CSS", "API"],
-    desc: "Un sito vetrina per un ristorante con menu dinamico e prenotazioni online.",
     client: "Osteria del Grano",
     year: "2025",
     liveUrl: "https://ristorante1-delta.vercel.app",
-    brief: "Il ristorante voleva un sito che mostrasse il menu aggiornato, permettesse di prenotare tavoli online e raccontasse la storia del locale.",
-    challenge: "Creare un sistema di prenotazioni online che fosse semplice da usare per i clienti e facile da gestire per il ristorante, senza un back-end complesso.",
-    solution: "Ho sviluppato un sito con React che consente di visualizzare il menu in tempo reale tramite un'API e di prenotare tavoli online. Ho implementato un sistema di gestione delle prenotazioni che invia notifiche al ristorante via email.",
     photos: [
       "/photos3/1.webp",
       "/photos3/2.webp",
@@ -112,7 +108,7 @@ function LogoIntro({ onDone }) {
 function Navbar({ hidden }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { lang, setLang, t } = useLanguage();
+  const { lang, setLang, localize, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -139,7 +135,7 @@ function Navbar({ hidden }) {
   return (
     <>
       <nav className={`navbar${scrolled ? " scrolled" : ""}${hidden ? " hidden" : ""}`}>
-        <Link to="/" className={`navbar__logo${hidden ? " navbar__logo--hidden" : ""}`}>
+        <Link to={localize("/")} className={`navbar__logo${hidden ? " navbar__logo--hidden" : ""}`}>
           {ME.name}<span>.</span>
         </Link>
 
@@ -226,6 +222,7 @@ function Hero() {
 /* ─── PROJECT CARD ──────────────────────────────────────────────────────── */
 function ProjectCard({ project, desc, openLabel }) {
   const ref = useFadeIn();
+  const { localize } = useLanguage();
   return (
     <article ref={ref} className="project-card fade-section">
       <span className="project-card__number">{project.id}</span>
@@ -235,7 +232,7 @@ function ProjectCard({ project, desc, openLabel }) {
         </div>
         <h3 className="project-card__title">{project.title}</h3>
         <p className="project-card__desc">{desc}</p>
-        <Link to={`/progetti/${project.slug}`} className="project-card__link">
+        <Link to={localize(`/progetti/${project.slug}`)} className="project-card__link">
           {openLabel}
         </Link>
       </div>
@@ -249,13 +246,14 @@ function Projects() {
   const { t } = useLanguage();
   return (
     <section id="progetti" className="projects">
-      <p ref={ref} className="section-label fade-section">{t.projects.sectionLabel}</p>
+      {/* h2 e non p: le card hanno h3, senza un h2 sopra la gerarchia salta un livello */}
+      <h2 ref={ref} className="section-label fade-section">{t.projects.sectionLabel}</h2>
       <div className="projects__list">
-        {PROJECTS.map((p, i) => (
+        {PROJECTS.map(p => (
           <ProjectCard
             key={p.id}
             project={p}
-            desc={t.projects.items[i] ?? p.desc}
+            desc={t.projects.items[p.slug].desc}
             openLabel={t.projects.openProject}
           />
         ))}
@@ -471,10 +469,11 @@ function Footer() {
 /* ─── HOME PAGE ─────────────────────────────────────────────────────────── */
 function HomePage() {
   const [introActive, setIntroActive] = useState(true);
+  const { lang } = useLanguage();
 
   useEffect(() => {
-    setDocumentMeta(HOME_META);
-  }, []);
+    setDocumentMeta(getHomeMeta(lang));
+  }, [lang]);
 
   return (
     <>
@@ -487,6 +486,7 @@ function HomePage() {
         <Process />
         <Projects />
         <About />
+        <Faq />
         <Contact />
         <Footer />
       </main>
@@ -501,8 +501,14 @@ export function AppRoutes() {
   return (
     <LanguageProvider>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/progetti/:slug" element={<ProjectPage projects={PROJECTS} />} />
+        {/* Stesse pagine per ogni lingua: "/" (it), "/en/", "/es/" — vedi i18n/paths.js */}
+        {LANGUAGES.map(lang => {
+          const prefix = localizePath("", lang);
+          return [
+            <Route key={`${lang}-home`} path={`${prefix}/`} element={<HomePage />} />,
+            <Route key={`${lang}-project`} path={`${prefix}/progetti/:slug`} element={<ProjectPage projects={PROJECTS} />} />,
+          ];
+        })}
       </Routes>
       <CookieConsentBanner />
     </LanguageProvider>

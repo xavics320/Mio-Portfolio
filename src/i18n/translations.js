@@ -3,20 +3,32 @@
   translations.js — ottimizzato per SEO (Step 6)
   
   REGOLE APPLICATE:
-  - Keyword principale "sviluppatore front-end freelance" nell'H1 (tagline)
-  - Keyword geografica "Milano" nel label e nella bio
+  - Keyword principale "siti web per piccole imprese e artigiani" nell'H1
+    (tagline): è quello che cerca un cliente, non "front-end developer"
+  - Keyword geografica "Milano" nel label, nel title e nella bio
   - Keyword tecnica "React" nel sub e nella bio
-  - Keyword di nicchia "artigiani" e "piccole imprese" nel sub e bio
-  - Keyword long-tail distribuite negli step del processo
+  - Keyword transazionali ("prezzi", "preventivo", "quanto costa") in
+    Prezzi e FAQ
   - Nessuna ripetizione forzata — ogni keyword appare in modo naturale
-  - Densità keyword: ~1.5% — entro il limite consigliato
-  - Versioni EN e ES invariate — SEO italiana non ne dipende
+  - EN ed ES hanno URL propri (/en/, /es/ — vedi paths.js) e vengono
+    indicizzati anche loro: stesse regole, keyword nella loro lingua
+
+  seo: title e description della home e suffisso dei title dei progetti.
+  Title ≤ 60 caratteri, description ≤ 160 (oltre Google li tronca).
+  projects.items: testi dei progetti per slug (i dati strutturali —
+  foto, tag, anno, link — stanno in PROJECTS in App.jsx).
 */
 
 export const LANGUAGES = ["it", "en", "es"];
 
 export const translations = {
   it: {
+    seo: {
+      title: "Siti Web per Piccole Imprese a Milano | Xavier Paredes",
+      description: "Sviluppatore web freelance a Milano: creo siti veloci e su misura per artigiani e piccole imprese. Pacchetti da 489 €, consulenza gratuita.",
+      projectsLabel: "Progetti",
+    },
+
     nav: {
       prezzi: "Prezzi",
       progetti: "Progetti",
@@ -27,25 +39,21 @@ export const translations = {
 
     hero: {
       /*
-        LABEL — "Sviluppatore Front-End · Milano"
-        MODIFICA: da "Web Developer" (inglese) a "Sviluppatore Front-End" (italiano)
-        PERCHÉ: un cliente italiano cerca "sviluppatore" non "web developer".
-        Aggiunto "Freelance" perché è una delle tue keyword target principali.
+        LABEL — "Sviluppatore Web Freelance · Milano"
+        PERCHÉ: un cliente italiano cerca "sviluppatore web" o "web
+        designer", quasi mai "front-end" (termine da addetti ai lavori).
       */
-      label: "Sviluppatore Front-End · Milano",
+      label: "Sviluppatore Web Freelance · Milano",
 
       /*
         TAGLINE (H1) — keyword principale integrata
-        MODIFICA: da "La tua idea prende forma qui." a versione con keyword.
         PERCHÉ: l'H1 è il segnale SEO più importante della pagina dopo il
-        title tag. Conteneva zero keyword — Google non capiva chi sei.
-        
-        La frase mantiene il tono diretto e personale ma ora risponde
-        alla domanda che si fa Google: "di cosa parla questa pagina?"
-        
-        KEYWORD PRESENTE: "sviluppatore front-end freelance"
+        title tag. "Siti web" + target (piccole imprese, artigiani) è
+        esattamente quello che scrive su Google chi cerca un sito.
+
+        KEYWORD PRESENTE: "siti web per piccole imprese e artigiani"
       */
-      tagline: "Sviluppatore front-end freelance per piccole imprese e artigiani.",
+      tagline: "Siti web su misura per piccole imprese e artigiani.",
 
       /*
         SUB — keyword secondarie e di nicchia
@@ -74,15 +82,29 @@ export const translations = {
       openProject: "Scopri il progetto →",
 
       /*
-        DESCRIZIONI PROGETTI — keyword integrate naturalmente
-        MODIFICA: riscritte con keyword specifiche e risultati concreti.
+        TESTI PROGETTI — per slug (deve coincidere con PROJECTS in App.jsx)
+        category: tipo di sito, finisce nel <title> della pagina progetto
+        desc: card in home + meta description della pagina progetto
         PERCHÉ: le descrizioni dei progetti sono contenuto indicizzabile.
-        Menzionare le tecnologie usate (React, Vite, EmailJS) aiuta
-        a rankare per query tecniche come "sviluppatore React Milano".
+        Menzionare tipo di attività e tecnologie (React, Vite, EmailJS)
+        aiuta per query come "sito web per ristorante" o "sviluppatore React".
       */
-      items: [
-        "Sito web professionale per DKE Impianti, azienda di impianti elettrici a Milano. Sviluppato con React e Vite, con modulo di contatto EmailJS e design responsive ottimizzato per mobile.",
-      ],
+      items: {
+        "dke-impianti": {
+          category: "sito per impianti elettrici",
+          desc: "Sito web professionale per DKE Impianti, azienda di impianti elettrici a Milano. Sviluppato con React e Vite, con modulo di contatto EmailJS e design responsive.",
+          brief: "DKE Impianti aveva bisogno di un sito professionale per presentare i propri servizi e permettere ai clienti di contattarli facilmente.",
+          challenge: "La principale sfida era creare un sito moderno e responsive che rispecchiasse l'identità dell'azienda, con un modulo di contatto funzionante e sicuro.",
+          solution: "Ho sviluppato un sito web con React e Vite, utilizzando HTML e CSS per garantire un design pulito e responsive. Ho integrato EmailJS per il modulo di contatto, assicurando che le richieste dei clienti arrivassero direttamente alla loro email.",
+        },
+        "osteria-del-grano": {
+          category: "sito web per ristorante",
+          desc: "Sito vetrina per l'Osteria del Grano: menu aggiornato tramite API, prenotazione dei tavoli online e notifiche email al ristorante. Sviluppato con React.",
+          brief: "Il ristorante voleva un sito che mostrasse il menu aggiornato, permettesse di prenotare tavoli online e raccontasse la storia del locale.",
+          challenge: "Creare un sistema di prenotazioni online che fosse semplice da usare per i clienti e facile da gestire per il ristorante, senza un back-end complesso.",
+          solution: "Ho sviluppato un sito con React che consente di visualizzare il menu in tempo reale tramite un'API e di prenotare tavoli online. Ho implementato un sistema di gestione delle prenotazioni che invia notifiche al ristorante via email.",
+        },
+      },
     },
 
     about: {
@@ -259,6 +281,48 @@ export const translations = {
       },
     },
 
+    faq: {
+      /*
+        FAQ — keyword long-tail in forma di domanda
+        PERCHÉ: chi cerca "quanto costa un sito web" o "quanto tempo serve
+        per fare un sito" usa esattamente queste frasi. Le risposte vengono
+        anche esposte come schema FAQPage (vedi seo.js).
+        Le risposte devono restare coerenti con i pacchetti in "pricing".
+      */
+      sectionLabel: "Domande frequenti",
+      title: ["Domande", "frequenti."],
+      items: [
+        {
+          q: "Quanto costa un sito web?",
+          a: "Il pacchetto Starter costa 489 €, il Business 789 €: prezzi una tantum, senza abbonamenti. Per e-commerce o funzionalità particolari preparo un preventivo su misura, gratuito e senza impegno.",
+        },
+        {
+          q: "Quanto tempo serve per realizzare un sito?",
+          a: "La consegna è in 7 giorni con il pacchetto Starter e in 10 giorni con il Business. Per i progetti su misura i tempi li concordiamo insieme nel preventivo.",
+        },
+        {
+          q: "Dominio, hosting ed email sono inclusi?",
+          a: "Nel pacchetto Business dominio, hosting ed email personalizzata sono inclusi per il primo anno; dal secondo anno il rinnovo è a parte. Con lo Starter valutiamo insieme la soluzione più adatta alla tua attività.",
+        },
+        {
+          q: "Il mio sito sarà visibile su Google?",
+          a: "Sì: ogni sito è costruito con struttura, meta tag e velocità curati per i motori di ricerca — SEO di base nello Starter, ottimizzata nel Business. Nessuno può garantire onestamente il primo posto, ma partirai con basi solide.",
+        },
+        {
+          q: "Posso chiedere modifiche durante il lavoro?",
+          a: "Certo. Prima dello sviluppo vedi la bozza su Figma e puoi chiedere cambiamenti; poi sono incluse 1 revisione con lo Starter e 3 con il Business.",
+        },
+        {
+          q: "Il sito funziona bene anche da smartphone?",
+          a: "Sì, ogni sito è responsive: si adatta a smartphone, tablet e computer, con un codice ottimizzato per caricarsi in fretta anche da rete mobile.",
+        },
+        {
+          q: "Lavori solo con clienti di Milano?",
+          a: "Ho base a Milano ma lavoro con piccole imprese e artigiani in tutta Italia: ci sentiamo di persona, in call o via messaggio, come preferisci.",
+        },
+      ],
+    },
+
     contact: {
       /*
         SEZIONE CONTATTI — keyword transazionali
@@ -305,22 +369,40 @@ export const translations = {
     },
   },
 
-  // ─── EN — invariato ────────────────────────────────────────────────────────
+  // ─── EN ────────────────────────────────────────────────────────────────────
   en: {
+    seo: {
+      title: "Websites for Small Businesses in Milan | Xavier Paredes",
+      description: "Freelance web developer in Milan: fast, custom websites for artisans and small businesses. Packages from €489, free consultation.",
+      projectsLabel: "Projects",
+    },
     nav: { prezzi: "Pricing", progetti: "Projects", processo: "How I work", chiSono: "About", contatti: "Contact" },
     hero: {
-      label: "Front-End Developer · Milan",
-      tagline: "Your idea takes shape here.",
-      sub: "I build websites for people with something beautiful to tell — artisans, freelancers, small businesses.",
+      label: "Freelance Web Developer · Milan",
+      tagline: "Custom websites for small businesses and artisans.",
+      sub: "I build websites in React for people with something beautiful to tell — artisans, freelancers, small businesses. Modern design, clean code, real results.",
       ctaProjects: "See the projects",
       ctaContact: "Let's work together →",
     },
     projects: {
-      sectionLabel: "Selected work",
+      sectionLabel: "Websites I've built",
       openProject: "Open project →",
-      items: [
-        "Professional website for DKE Impianti, an electrical systems company in Milan. Built with React and Vite, with EmailJS contact form and mobile-optimised responsive design.",
-      ],
+      items: {
+        "dke-impianti": {
+          category: "electrical contractor website",
+          desc: "Professional website for DKE Impianti, an electrical systems company in Milan. Built with React and Vite, with an EmailJS contact form and responsive design.",
+          brief: "DKE Impianti needed a professional website to present its services and make it easy for customers to get in touch.",
+          challenge: "The main challenge was building a modern, responsive site that reflected the company's identity, with a working and secure contact form.",
+          solution: "I built the site with React and Vite, using HTML and CSS for a clean, responsive design. I integrated EmailJS for the contact form, so customer requests go straight to the company's inbox.",
+        },
+        "osteria-del-grano": {
+          category: "restaurant website",
+          desc: "Showcase website for Osteria del Grano: menu kept up to date via an API, online table booking and email notifications to the restaurant. Built with React.",
+          brief: "The restaurant wanted a website that showed an up-to-date menu, allowed online table booking and told the story of the place.",
+          challenge: "Building an online booking system that was simple for guests to use and easy for the restaurant to manage, without a complex back end.",
+          solution: "I built a React site that shows the menu in real time via an API and lets guests book tables online. I implemented a booking flow that notifies the restaurant by email.",
+        },
+      },
     },
     about: {
       sectionLabel: "About",
@@ -395,6 +477,40 @@ export const translations = {
         },
       },
     },
+    faq: {
+      sectionLabel: "FAQ",
+      title: ["Frequently asked", "questions."],
+      items: [
+        {
+          q: "How much does a website cost?",
+          a: "The Starter package is €489 and Business is €789: one-off prices, no subscriptions. For e-commerce or specific features I prepare a custom quote, free and with no obligation.",
+        },
+        {
+          q: "How long does it take to build a website?",
+          a: "Delivery takes 7 days with the Starter package and 10 days with Business. For custom projects we agree on the timeline together in the quote.",
+        },
+        {
+          q: "Are domain, hosting and email included?",
+          a: "In the Business package, domain, hosting and a custom email address are included for the first year; renewal from the second year is billed separately. With Starter we choose the best option for your business together.",
+        },
+        {
+          q: "Will my website show up on Google?",
+          a: "Yes: every site is built with structure, meta tags and speed tuned for search engines — basic SEO in Starter, optimised SEO in Business. Nobody can honestly guarantee the top spot, but you'll start on solid ground.",
+        },
+        {
+          q: "Can I ask for changes along the way?",
+          a: "Of course. Before development you see the Figma draft and can request changes; after that, 1 revision is included with Starter and 3 with Business.",
+        },
+        {
+          q: "Will the site work well on smartphones?",
+          a: "Yes, every site is responsive: it adapts to phones, tablets and computers, with code optimised to load quickly even on mobile networks.",
+        },
+        {
+          q: "Do you only work with clients in Milan?",
+          a: "I'm based in Milan but work with small businesses and artisans all over Italy: we can meet in person, on a call or by message, whatever suits you.",
+        },
+      ],
+    },
     contact: {
       sectionLabel: "Let's collaborate",
       title: ["Got a web project", "in mind?"],
@@ -430,22 +546,40 @@ export const translations = {
     },
   },
 
-  // ─── ES — invariato ────────────────────────────────────────────────────────
+  // ─── ES ────────────────────────────────────────────────────────────────────
   es: {
+    seo: {
+      title: "Páginas Web para Pequeñas Empresas | Xavier Paredes",
+      description: "Desarrollador web freelance en Milán: creo páginas web rápidas y a medida para artesanos y pequeñas empresas. Paquetes desde 489 €, consulta gratuita.",
+      projectsLabel: "Proyectos",
+    },
     nav: { prezzi: "Precios", progetti: "Proyectos", processo: "Cómo trabajo", chiSono: "Sobre mí", contatti: "Contacto" },
     hero: {
-      label: "Desarrollador Front-End · Milán",
-      tagline: "Tu idea toma forma aquí.",
-      sub: "Construyo sitios web para quienes tienen algo bonito que contar — artesanos, freelancers, pequeñas empresas.",
+      label: "Desarrollador Web Freelance · Milán",
+      tagline: "Páginas web a medida para pequeñas empresas y artesanos.",
+      sub: "Construyo sitios web en React para quienes tienen algo bonito que contar — artesanos, freelancers, pequeñas empresas. Diseño moderno, código limpio, resultados concretos.",
       ctaProjects: "Ver los proyectos",
       ctaContact: "Trabajemos juntos →",
     },
     projects: {
-      sectionLabel: "Trabajos seleccionados",
+      sectionLabel: "Sitios web realizados",
       openProject: "Abrir proyecto →",
-      items: [
-        "Sitio web profesional para DKE Impianti, empresa de instalaciones eléctricas en Milán. Desarrollado con React y Vite, con formulario de contacto EmailJS y diseño responsive optimizado para móvil.",
-      ],
+      items: {
+        "dke-impianti": {
+          category: "web para electricistas",
+          desc: "Sitio web profesional para DKE Impianti, empresa de instalaciones eléctricas en Milán. Hecho con React y Vite, con formulario EmailJS y diseño responsive.",
+          brief: "DKE Impianti necesitaba un sitio profesional para presentar sus servicios y facilitar que los clientes se pusieran en contacto.",
+          challenge: "El principal reto era crear un sitio moderno y responsive que reflejara la identidad de la empresa, con un formulario de contacto funcional y seguro.",
+          solution: "Desarrollé el sitio con React y Vite, usando HTML y CSS para un diseño limpio y responsive. Integré EmailJS en el formulario de contacto para que las solicitudes de los clientes lleguen directamente a su email.",
+        },
+        "osteria-del-grano": {
+          category: "web para restaurante",
+          desc: "Sitio escaparate para la Osteria del Grano: menú actualizado vía API, reservas online y avisos por email al restaurante. Hecho con React.",
+          brief: "El restaurante quería un sitio que mostrara el menú actualizado, permitiera reservar mesa online y contara la historia del local.",
+          challenge: "Crear un sistema de reservas online sencillo para los clientes y fácil de gestionar para el restaurante, sin un back-end complejo.",
+          solution: "Desarrollé un sitio con React que muestra el menú en tiempo real mediante una API y permite reservar mesa online. Implementé un sistema de reservas que avisa al restaurante por email.",
+        },
+      },
     },
     about: {
       sectionLabel: "Sobre mí",
@@ -519,6 +653,40 @@ export const translations = {
           ],
         },
       },
+    },
+    faq: {
+      sectionLabel: "Preguntas frecuentes",
+      title: ["Preguntas", "frecuentes."],
+      items: [
+        {
+          q: "¿Cuánto cuesta una página web?",
+          a: "El paquete Starter cuesta 489 € y el Business 789 €: precios de pago único, sin suscripciones. Para e-commerce o funcionalidades específicas preparo un presupuesto a medida, gratuito y sin compromiso.",
+        },
+        {
+          q: "¿Cuánto tiempo se tarda en hacer una página web?",
+          a: "La entrega es en 7 días con el paquete Starter y en 10 días con el Business. Para proyectos a medida acordamos los tiempos juntos en el presupuesto.",
+        },
+        {
+          q: "¿Dominio, hosting y email están incluidos?",
+          a: "En el paquete Business, dominio, hosting y email personalizado están incluidos el primer año; a partir del segundo año la renovación se paga aparte. Con el Starter elegimos juntos la mejor opción para tu negocio.",
+        },
+        {
+          q: "¿Mi página web aparecerá en Google?",
+          a: "Sí: cada sitio se construye con estructura, meta tags y velocidad cuidados para los buscadores — SEO básico en el Starter, optimizado en el Business. Nadie puede garantizar honestamente el primer puesto, pero empezarás con una base sólida.",
+        },
+        {
+          q: "¿Puedo pedir cambios durante el trabajo?",
+          a: "Claro. Antes del desarrollo ves el boceto en Figma y puedes pedir cambios; después se incluye 1 revisión con el Starter y 3 con el Business.",
+        },
+        {
+          q: "¿La web funciona bien en el móvil?",
+          a: "Sí, cada sitio es responsive: se adapta a móviles, tablets y ordenadores, con un código optimizado para cargar rápido incluso con datos móviles.",
+        },
+        {
+          q: "¿Trabajas solo con clientes de Milán?",
+          a: "Tengo base en Milán pero trabajo con pequeñas empresas y artesanos de toda Italia: nos vemos en persona, por videollamada o por mensaje, como prefieras.",
+        },
+      ],
     },
     contact: {
       sectionLabel: "Colaboremos",

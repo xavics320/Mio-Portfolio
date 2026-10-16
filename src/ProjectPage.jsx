@@ -7,7 +7,7 @@ import "./ProjectPage.css";
 
 export default function ProjectPage({ projects }) {
   const { slug } = useParams();
-  const { t } = useLanguage();
+  const { lang, localize, t } = useLanguage();
   const pp = t.projectPage;
 
   const index = projects.findIndex(p => p.slug === slug);
@@ -25,28 +25,30 @@ export default function ProjectPage({ projects }) {
   // condividerebbe title/description/canonical della homepage.
   useEffect(() => {
     if (!project) return;
-    setDocumentMeta(getProjectMeta(project));
-  }, [project]);
+    setDocumentMeta(getProjectMeta(project, lang));
+  }, [project, lang]);
 
   // 404 se slug non esiste
   if (!project) {
     return (
       <div className="pp-notfound">
         <p>{pp.notFound}</p>
-        <Link to="/" className="btn btn--primary">{pp.backHome}</Link>
+        <Link to={localize("/")} className="btn btn--primary">{pp.backHome}</Link>
       </div>
     );
   }
 
   const hasPhotos = project.photos && project.photos.length > 0;
+  // Testi tradotti del progetto (brief, sfida, soluzione…)
+  const copy = t.projects.items[project.slug];
 
   return (
     <div className="pp-page">
 
       {/* ── NAVBAR minimale ─────────────────────────────────────────────── */}
       <nav className="pp-nav">
-        <Link to="/" className="pp-nav__logo">{project.title.split(" ")[0]}.</Link>
-        <Link to="/" className="pp-nav__back">{pp.allProjects}</Link>
+        <Link to={localize("/")} className="pp-nav__logo">{project.title.split(" ")[0]}.</Link>
+        <Link to={localize("/")} className="pp-nav__back">{pp.allProjects}</Link>
       </nav>
 
       {/* ── HERO ────────────────────────────────────────────────────────── */}
@@ -114,25 +116,25 @@ export default function ProjectPage({ projects }) {
 
         {/* Brief */}
         <div className="pp-block">
-          <span className="pp-block__label">{pp.brief}</span>
-          <p className="pp-block__text">{project.brief}</p>
+          <h2 className="pp-block__label">{pp.brief}</h2>
+          <p className="pp-block__text">{copy.brief}</p>
         </div>
 
         {/* Challenge */}
         <div className="pp-block">
-          <span className="pp-block__label">{pp.challenge}</span>
-          <p className="pp-block__text">{project.challenge}</p>
+          <h2 className="pp-block__label">{pp.challenge}</h2>
+          <p className="pp-block__text">{copy.challenge}</p>
         </div>
 
         {/* Solution */}
         <div className="pp-block">
-          <span className="pp-block__label">{pp.solution}</span>
-          <p className="pp-block__text">{project.solution}</p>
+          <h2 className="pp-block__label">{pp.solution}</h2>
+          <p className="pp-block__text">{copy.solution}</p>
         </div>
 
         {/* Tecnologie */}
         <div className="pp-block">
-          <span className="pp-block__label">{pp.technologies}</span>
+          <h2 className="pp-block__label">{pp.technologies}</h2>
           <div className="pp-tech">
             {project.tags.map(t => (
               <span key={t} className="pp-tag">{t}</span>
@@ -145,13 +147,13 @@ export default function ProjectPage({ projects }) {
       {/* ── NAVIGAZIONE PREV / NEXT ──────────────────────────────────────── */}
       <nav className="pp-prevnext">
         {prev ? (
-          <Link to={`/progetti/${prev.slug}`} className="pp-prevnext__item pp-prevnext__item--prev">
+          <Link to={localize(`/progetti/${prev.slug}`)} className="pp-prevnext__item pp-prevnext__item--prev">
             <span className="pp-prevnext__dir">{pp.previous}</span>
             <span className="pp-prevnext__name">{prev.title}</span>
           </Link>
         ) : <div />}
         {next ? (
-          <Link to={`/progetti/${next.slug}`} className="pp-prevnext__item pp-prevnext__item--next">
+          <Link to={localize(`/progetti/${next.slug}`)} className="pp-prevnext__item pp-prevnext__item--next">
             <span className="pp-prevnext__dir">{pp.next}</span>
             <span className="pp-prevnext__name">{next.title}</span>
           </Link>

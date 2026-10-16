@@ -286,3 +286,9 @@
     text-align: left;
   }
 }
+/* Le label dei blocchi sono h2 (Brief, Sfida, Soluzione…): annulla gli stili globali degli h2 */
+h2.pp-block__label {
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}

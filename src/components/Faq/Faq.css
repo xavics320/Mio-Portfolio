@@ -1,0 +1,83 @@
+/* ─── FAQ ────────────────────────────────────────────────────────────────── */
+.faq {
+  padding: 8rem clamp(1.5rem, 5vw, 4rem);
+  text-align: left; /* annulla il text-align: center ereditato da #root (index.css) */
+}
+
+.faq__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #F5F5F0;
+  margin: 0 0 3rem;
+}
+
+.faq__list {
+  max-width: 860px;
+}
+
+.faq__item {
+  border-top: 1px solid #222;
+}
+
+.faq__item:last-child {
+  border-bottom: 1px solid #222;
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  list-style: none; /* nasconde il triangolino nativo */
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+/* "+" che ruota in "×" quando la domanda è aperta */
+.faq__question::after {
+  content: "+";
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #C8FF00;
+  transition: transform 0.25s ease;
+}
+
+.faq__item[open] .faq__question::after {
+  transform: rotate(45deg);
+}
+
+.faq__question:focus-visible {
+  outline: 2px solid #C8FF00;
+  outline-offset: 4px;
+}
+
+.faq__question-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: #F5F5F0;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.faq__question:hover .faq__question-text {
+  color: #C8FF00;
+}
+
+.faq__answer {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #888;
+  max-width: 68ch;
+  padding: 0 0 1.75rem;
+}
