@@ -10,7 +10,7 @@ html {
   /* Base dei rem: 18px su desktop, 16px sotto i 1024px */
   font: 18px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  color-scheme: dark; /* sito solo scuro: scrollbar e campi del form scuri */
   background: #0D0D0D;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,22 +24,14 @@ html {
   }
 }
 
-/* Colonna centrale del sito: max 1126px, bordata ai lati */
+/* Colonna centrale del sito: max 1126px */
 #root {
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid #e5e4e7;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-}
-
-@media (prefers-color-scheme: dark) {
-  #root {
-    border-color: #2e303a;
-  }
 }
 
 /* Stile di partenza dei titoli; i componenti lo sovrascrivono con le loro classi */

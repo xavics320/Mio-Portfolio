@@ -1,7 +1,6 @@
 /* ─── FAQ ────────────────────────────────────────────────────────────────── */
 .faq {
   padding: 8rem clamp(1.5rem, 5vw, 4rem);
-  text-align: left; /* annulla il text-align: center ereditato da #root (index.css) */
 }
 
 .faq__title {
