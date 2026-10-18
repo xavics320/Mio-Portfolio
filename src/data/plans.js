@@ -7,7 +7,7 @@
   featured: evidenzia il piano consigliato (uno solo).
 */
 export const PLANS = [
-  { id: "starter", price: 489, featured: false },
-  { id: "business", price: 789, featured: true },
+  { id: "starter", price: 449, featured: false },
+  { id: "business", price: 749, featured: true },
   { id: "custom", price: null, featured: false },
 ];
