@@ -1,0 +1,79 @@
+/* ─── PROGETTI ───────────────────────────────────────────────────────────── */
+.projects {
+  padding: 8rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.projects__list {
+  max-width: 860px;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 2.5rem 0;
+  border-top: 1px solid #222;
+}
+
+.project-card__number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #C8FF00;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  opacity: 0.9;
+  min-width: 3ch;
+}
+
+.project-card__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.project-card__tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  border: 1px solid #333;
+  padding: 0.2rem 0.6rem;
+}
+
+.project-card__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #F5F5F0;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.project-card__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #888;
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+  max-width: 55ch;
+}
+
+.project-card__link {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: #C8FF00;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid #C8FF00;
+  padding-bottom: 2px;
+}
+
+@media (max-width: 640px) {
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+}

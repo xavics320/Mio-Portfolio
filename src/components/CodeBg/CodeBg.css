@@ -1,0 +1,55 @@
+/* ─── BACKGROUND ─────────────────────────────────────────────────────────── */
+.code-bg {
+  --cell: 56px;
+  --mx: 50vw;
+  --my: -30vh;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% -8%, rgba(200, 255, 0, 0.09), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 100% 100%, rgba(200, 255, 0, 0.04), transparent 70%),
+    #0D0D0D;
+}
+
+/* Griglia neutra + un punto lime ogni 4 celle, sfuma verso il basso */
+.code-bg__grid,
+.code-bg__spot {
+  position: absolute;
+  inset: 0;
+}
+
+.code-bg__grid {
+  background-image:
+    radial-gradient(circle at 0.5px 0.5px, rgba(200, 255, 0, 0.35) 1.2px, transparent 1.8px),
+    linear-gradient(rgba(245, 245, 240, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 245, 240, 0.04) 1px, transparent 1px);
+  background-size: calc(var(--cell) * 4) calc(var(--cell) * 4), var(--cell) var(--cell), var(--cell) var(--cell);
+  -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 20%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 75% at 50% 20%, #000 35%, transparent 100%);
+}
+
+/* Stessa griglia in lime, visibile solo attorno al cursore */
+.code-bg__spot {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background-image:
+    linear-gradient(rgba(200, 255, 0, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 255, 0, 0.16) 1px, transparent 1px),
+    radial-gradient(circle 260px at var(--mx) var(--my), rgba(200, 255, 0, 0.05), transparent 70%);
+  background-size: var(--cell) var(--cell), var(--cell) var(--cell), 100% 100%;
+  -webkit-mask-image: radial-gradient(circle 240px at var(--mx) var(--my), #000, transparent 75%);
+  mask-image: radial-gradient(circle 240px at var(--mx) var(--my), #000, transparent 75%);
+}
+
+.code-bg--active .code-bg__spot {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .code-bg {
+    --cell: 40px;
+  }
+}

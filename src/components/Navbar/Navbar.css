@@ -1,0 +1,182 @@
+/* ─── NAVBAR ─────────────────────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  height: 72px;
+  /* Bordo sempre presente ma trasparente: senza, la transizione partiva
+     dal colore del testo (bianco) e il bordo lampeggiava allo scroll */
+  border-bottom: 1px solid transparent;
+  transition: height 0.3s, background 0.3s, border-color 0.3s;
+}
+
+.navbar.scrolled {
+  height: 56px;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #222;
+}
+
+.navbar.hidden {
+  opacity: 0;
+}
+
+.navbar__logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #C8FF00;
+  letter-spacing: -0.03em;
+}
+
+.navbar__logo span {
+  color: #F5F5F0;
+}
+
+.navbar__logo--hidden {
+  visibility: hidden;
+}
+
+.navbar__links {
+  display: flex;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  list-style: none;
+}
+
+.navbar__links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar__links a:hover {
+  color: #F5F5F0;
+}
+
+.navbar__links a.active {
+  color: #C8FF00;
+}
+
+/* ─── NAVBAR RIGHT (lingua + hamburger) ─────────────────────────────────── */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ─── HAMBURGER ──────────────────────────────────────────────────────────── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 101;
+}
+.navbar__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #F5F5F0;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.navbar__hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.navbar__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.navbar__hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ─── MENU MOBILE OVERLAY ────────────────────────────────────────────────── */
+.navbar__mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(13,13,13,0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.navbar__mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.navbar__mobile-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+.navbar__mobile-links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #F5F5F0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.navbar__mobile-links a:hover { color: #C8FF00; }
+
+.navbar__mobile-lang {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar__links { display: none; }
+  .navbar__hamburger { display: flex; }
+}
+/* ─── LANGUAGE SWITCHER ─────────────────────────────────────────────────── */
+.navbar__lang {
+  display: flex;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.navbar__lang-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: transparent;
+  border: 1px solid #333;
+  color: #777;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.navbar__lang-btn:hover {
+  color: #F5F5F0;
+  border-color: #F5F5F0;
+}
+
+.navbar__lang-btn.active {
+  background: #C8FF00;
+  color: #0D0D0D;
+  border-color: #C8FF00;
+}

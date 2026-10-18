@@ -1,0 +1,153 @@
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Base dei rem: 18px su desktop, 16px sotto i 1024px */
+  font: 18px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  background: #0D0D0D;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Colonna centrale del sito: max 1126px, bordata ai lati */
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid #e5e4e7;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+  #root {
+    border-color: #2e303a;
+  }
+}
+
+/* Stile di partenza dei titoli; i componenti lo sovrascrivono con le loro classi */
+h1,
+h2 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+body {
+  background: #0D0D0D;
+  color: #F5F5F0;
+}
+
+::selection {
+  background: #C8FF00;
+  color: #0D0D0D;
+}
+
+/* ─── FADE-IN ON SCROLL ──────────────────────────────────────────────────── */
+.fade-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── PULSANTI ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn--primary {
+  background: #C8FF00;
+  color: #0D0D0D;
+}
+
+.btn--primary:hover {
+  background: #b8ef00;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: #F5F5F0;
+  border: 1px solid #444;
+}
+
+.btn--ghost:hover {
+  border-color: #F5F5F0;
+}
+
+/* ─── LABEL DI SEZIONE ───────────────────────────────────────────────────── */
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C8FF00;
+  margin-bottom: 1rem;
+}
+
+/* Quando la label è un h2 (sezione Progetti) annulla gli stili globali degli h2 */
+h2.section-label {
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0;
+}
+
+/* ─── MOBILE BG FALLBACK (Three.js disattivato) ──────────────────────────── */
+@media (max-width: 767px) {
+  body {
+    background: radial-gradient(ellipse at 60% 20%, #1a2010 0%, #0D0D0D 60%);
+  }
+}

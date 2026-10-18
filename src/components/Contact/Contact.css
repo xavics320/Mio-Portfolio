@@ -1,0 +1,82 @@
+/* ─── CONTATTI ───────────────────────────────────────────────────────────── */
+.contact {
+  padding: 8rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.contact__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #F5F5F0;
+  margin: 0 0 1rem;
+  line-height: 1.05;
+}
+
+.contact__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #888;
+  max-width: 45ch;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 520px;
+  align-items: flex-start;
+}
+
+.contact__input,
+.contact__textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  background: #111;
+  border: 1px solid #333;
+  color: #F5F5F0;
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 520px;
+  max-width: 100%;
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+  border-color: #C8FF00;
+}
+
+.contact__textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact__success {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  color: #C8FF00;
+}
+
+.contact__links {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contact__links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact__links a:hover {
+  color: #F5F5F0;
+}

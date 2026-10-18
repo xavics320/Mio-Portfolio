@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
+import "./CodeBg.css";
 
 /*
   Sfondo "editor": griglia sottile + bagliore lime, tutto in CSS (vedi
-  .code-bg in App.css). Il JS serve solo a passare la posizione del
+  CodeBg.css). Il JS serve solo a passare la posizione del
   mouse alle variabili --mx/--my per il riflettore che illumina la
   griglia — niente canvas, niente librerie.
 */

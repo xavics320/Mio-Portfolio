@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useLanguage } from "./i18n/useLanguage";
-import { grantAnalyticsConsent } from "./analytics";
+import { useLanguage } from "../../i18n/useLanguage";
+import { grantAnalyticsConsent } from "../../lib/analytics";
+import "./CookieConsentBanner.css";
 
 const STORAGE_KEY = "cookie-consent";
 

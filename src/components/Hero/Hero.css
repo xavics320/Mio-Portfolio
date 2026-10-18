@@ -1,0 +1,45 @@
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px clamp(1.5rem, 5vw, 4rem) 0;
+  text-align: left;
+}
+
+.hero__label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C8FF00;
+  margin-bottom: 1.5rem;
+}
+
+.hero__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: #F5F5F0;
+  margin: 0 0 2rem;
+  max-width: 16ch;
+}
+
+.hero__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #888;
+  max-width: 50ch;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

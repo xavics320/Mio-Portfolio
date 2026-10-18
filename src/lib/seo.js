@@ -1,5 +1,5 @@
-import { translations, LANGUAGES } from "./i18n/translations";
-import { parsePath, localizePath, DEFAULT_LANG } from "./i18n/paths";
+import { translations, LANGUAGES } from "../i18n/translations";
+import { parsePath, localizePath, DEFAULT_LANG } from "../i18n/paths";
 
 export const SITE_URL = "https://xavierparedes-dev.it";
 

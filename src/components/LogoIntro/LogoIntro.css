@@ -1,0 +1,68 @@
+/* ─── LOGO INTRO ─────────────────────────────────────────────────────────── */
+.logo-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #0D0D0D;
+  pointer-events: none;
+  transition: opacity 0.35s ease 0.2s;
+}
+
+.logo-intro-overlay.moved {
+  opacity: 0;
+}
+
+.logo-intro-text {
+  position: fixed;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #C8FF00;
+  white-space: nowrap;
+  /* stato iniziale */
+  font-size: clamp(2rem, 6vw, 5rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    font-size 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-intro-text.moved {
+  font-size: 1.1rem;
+  left: clamp(1.5rem, 5vw, 4rem);
+  transform: translateY(-1318%);
+}
+
+.logo-intro-text span {
+  color: #F5F5F0;
+}
+
+.home-main {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.home-main--intro {
+  opacity: 0;
+}
+
+/* Visite successive: niente intro (classe messa da index.html) */
+.intro-seen .logo-intro-overlay {
+  display: none;
+}
+
+.intro-seen .home-main--intro {
+  opacity: 1;
+}
+
+.intro-seen .navbar.hidden {
+  opacity: 1;
+}
+
+.intro-seen .navbar__logo--hidden {
+  visibility: visible;
+}

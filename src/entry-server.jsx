@@ -1,9 +1,10 @@
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
-import { AppRoutes, PROJECTS } from "./App";
+import { AppRoutes } from "./App";
+import { PROJECTS } from "./data/projects";
 import { PLANS } from "./data/plans";
 import { allRoutes } from "./i18n/paths";
-import { resolveMetaForPath, resolveSchemaForPath } from "./seo";
+import { resolveMetaForPath, resolveSchemaForPath } from "./lib/seo";
 
 // Tutte le route da prerenderizzare, in tutte le lingue
 export const ROUTES = allRoutes(PROJECTS.map(p => p.slug));

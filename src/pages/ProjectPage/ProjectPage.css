@@ -246,30 +246,6 @@
   color: #888;
 }
 
-/* ─── PULSANTI (speculari ad App.css) ───────────────────────────────────── */
-.btn {
-  display: inline-block;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0.75rem 1.75rem;
-  cursor: pointer;
-  border: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.btn--primary {
-  background: #C8FF00;
-  color: #0D0D0D;
-}
-
-.btn--primary:hover {
-  background: #b8ef00;
-}
-
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 700px) {
   .pp-content {

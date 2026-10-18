@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * Aggiunge la classe "visible" all'elemento quando entra nel viewport,
- * attivando l'animazione .fade-section definita in App.css.
+ * attivando l'animazione .fade-section definita in styles/global.css.
  * Si scollega dopo la prima comparsa: l'animazione parte una sola volta.
  */
 export function useFadeIn(threshold = 0.12) {

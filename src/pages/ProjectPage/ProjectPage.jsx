@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useLanguage } from "./i18n/useLanguage";
-import { setDocumentMeta } from "./useDocumentMeta";
-import { getProjectMeta } from "./seo";
+import { useLanguage } from "../../i18n/useLanguage";
+import { setDocumentMeta } from "../../lib/useDocumentMeta";
+import { getProjectMeta } from "../../lib/seo";
 import "./ProjectPage.css";
 
 export default function ProjectPage({ projects }) {

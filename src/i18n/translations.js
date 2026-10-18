@@ -16,7 +16,7 @@
   seo: title e description della home e suffisso dei title dei progetti.
   Title ≤ 60 caratteri, description ≤ 160 (oltre Google li tronca).
   projects.items: testi dei progetti per slug (i dati strutturali —
-  foto, tag, anno, link — stanno in PROJECTS in App.jsx).
+  foto, tag, anno, link — stanno in PROJECTS in data/projects.js).
 */
 
 export const LANGUAGES = ["it", "en", "es"];
@@ -34,7 +34,8 @@ export const translations = {
       progetti: "Progetti",
       processo: "Come lavoro",
       chiSono: "Chi sono",
-      contatti: "Contatti"
+      contatti: "Contatti",
+      faq: "FAQ"
     },
 
     hero: {
@@ -82,7 +83,7 @@ export const translations = {
       openProject: "Scopri il progetto →",
 
       /*
-        TESTI PROGETTI — per slug (deve coincidere con PROJECTS in App.jsx)
+        TESTI PROGETTI — per slug (deve coincidere con PROJECTS in data/projects.js)
         category: tipo di sito, finisce nel <title> della pagina progetto
         desc: card in home + meta description della pagina progetto
         PERCHÉ: le descrizioni dei progetti sono contenuto indicizzabile.
@@ -376,7 +377,7 @@ export const translations = {
       description: "Freelance web developer in Milan: fast, custom websites for artisans and small businesses. Packages from €489, free consultation.",
       projectsLabel: "Projects",
     },
-    nav: { prezzi: "Pricing", progetti: "Projects", processo: "How I work", chiSono: "About", contatti: "Contact" },
+    nav: { prezzi: "Pricing", progetti: "Projects", processo: "How I work", chiSono: "About", contatti: "Contact", faq: "FAQ" },
     hero: {
       label: "Freelance Web Developer · Milan",
       tagline: "Custom websites for small businesses and artisans.",
@@ -553,7 +554,7 @@ export const translations = {
       description: "Desarrollador web freelance en Milán: creo páginas web rápidas y a medida para artesanos y pequeñas empresas. Paquetes desde 489 €, consulta gratuita.",
       projectsLabel: "Proyectos",
     },
-    nav: { prezzi: "Precios", progetti: "Proyectos", processo: "Cómo trabajo", chiSono: "Sobre mí", contatti: "Contacto" },
+    nav: { prezzi: "Precios", progetti: "Proyectos", processo: "Cómo trabajo", chiSono: "Sobre mí", contatti: "Contacto", faq: "FAQ" },
     hero: {
       label: "Desarrollador Web Freelance · Milán",
       tagline: "Páginas web a medida para pequeñas empresas y artesanos.",
