@@ -8,7 +8,8 @@ import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import Pricing from "../components/Pricing/Pricing";
 import Process from "../components/Process/Process";
-import Projects from "../components/Projects/Projects";
+// import Projects from "../components/Projects/Projects"; // nascosta temporaneamente
+import Mockups from "../components/Mockup/Mockups";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
 import Faq from "../components/Faq/Faq";
@@ -32,7 +33,8 @@ export default function HomePage() {
         <Hero />
         <Pricing />
         <Process />
-        <Projects />
+        {/* <Projects /> */}
+        <Mockups />
         <About />
         <Contact />
         <Faq />

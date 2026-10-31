@@ -68,8 +68,24 @@ export const translations = {
       */
       sub: "Realizzo siti web in React per artigiani e piccole imprese in Italia. Design moderno, codice pulito, risultati concreti.",
 
-      ctaProjects: "Vedi i progetti",
+      ctaProjects: "Vedi gli esempi",
       ctaContact: "Lavoriamo insieme →",
+    },
+
+    mockups: {
+      sectionLabel: "Esempi per settore",
+      title: ["Un sito su misura", "per ogni attività"],
+      sub: "Ogni settore ha esigenze diverse. Ecco come può essere strutturato il sito della tua attività.",
+      categories: {
+        artigiani: { label: "Artigiani", desc: "Presenta il tuo lavoro con una galleria e fatti contattare facilmente." },
+        ristoranti: { label: "Ristoranti", desc: "Menu sempre aggiornato e prenotazioni in pochi clic." },
+        negozi: { label: "Negozi", desc: "Mostra i tuoi prodotti e vendi anche online." },
+        studi: { label: "Studi professionali", desc: "Servizi, team e appuntamenti in un unico posto." },
+        bnb: { label: "B&B e affittacamere", desc: "Camere, disponibilità e contatto diretto, senza commissioni." },
+        aziende: { label: "Aziende", desc: "Un'immagine professionale che racconta chi sei e cosa offri." },
+      },
+      ctaText: "Non trovi il tuo settore? Ogni sito è progettato da zero sulle tue esigenze.",
+      ctaButton: "Parliamone →",
     },
 
     projects: {
@@ -382,9 +398,25 @@ export const translations = {
       label: "Freelance Web Developer · Milan",
       tagline: "Custom websites for small businesses and artisans.",
       sub: "I build websites in React for people with something beautiful to tell — artisans, freelancers, small businesses. Modern design, clean code, real results.",
-      ctaProjects: "See the projects",
+      ctaProjects: "See examples",
       ctaContact: "Let's work together →",
     },
+    mockups: {
+      sectionLabel: "Examples by industry",
+      title: ["A tailor-made website", "for every business"],
+      sub: "Every industry has different needs. Here's how your business website could be structured.",
+      categories: {
+        artigiani: { label: "Craftspeople", desc: "Showcase your work with a gallery and make it easy to get in touch." },
+        ristoranti: { label: "Restaurants", desc: "An always up-to-date menu and bookings in a few clicks." },
+        negozi: { label: "Shops", desc: "Show your products and sell online too." },
+        studi: { label: "Professional firms", desc: "Services, team and appointments in one place." },
+        bnb: { label: "B&Bs and guesthouses", desc: "Rooms, availability and direct contact, with no commissions." },
+        aziende: { label: "Companies", desc: "A professional image that tells who you are and what you offer." },
+      },
+      ctaText: "Can't find your industry? Every website is designed from scratch around your needs.",
+      ctaButton: "Let's talk →",
+    },
+
     projects: {
       sectionLabel: "Websites I've built",
       openProject: "Open project →",
@@ -559,9 +591,25 @@ export const translations = {
       label: "Desarrollador Web Freelance · Milán",
       tagline: "Páginas web a medida para pequeñas empresas y artesanos.",
       sub: "Construyo sitios web en React para quienes tienen algo bonito que contar — artesanos, freelancers, pequeñas empresas. Diseño moderno, código limpio, resultados concretos.",
-      ctaProjects: "Ver los proyectos",
+      ctaProjects: "Ver ejemplos",
       ctaContact: "Trabajemos juntos →",
     },
+    mockups: {
+      sectionLabel: "Ejemplos por sector",
+      title: ["Una web a medida", "para cada negocio"],
+      sub: "Cada sector tiene necesidades distintas. Así podría estructurarse la web de tu negocio.",
+      categories: {
+        artigiani: { label: "Artesanos", desc: "Presenta tu trabajo con una galería y facilita el contacto." },
+        ristoranti: { label: "Restaurantes", desc: "Menú siempre actualizado y reservas en pocos clics." },
+        negozi: { label: "Tiendas", desc: "Muestra tus productos y vende también online." },
+        studi: { label: "Despachos profesionales", desc: "Servicios, equipo y citas en un solo lugar." },
+        bnb: { label: "B&B y alojamientos", desc: "Habitaciones, disponibilidad y contacto directo, sin comisiones." },
+        aziende: { label: "Empresas", desc: "Una imagen profesional que cuenta quién eres y qué ofreces." },
+      },
+      ctaText: "¿No encuentras tu sector? Cada web se diseña desde cero según tus necesidades.",
+      ctaButton: "Hablemos →",
+    },
+
     projects: {
       sectionLabel: "Sitios web realizados",
       openProject: "Abrir proyecto →",

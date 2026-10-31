@@ -1,0 +1,222 @@
+/* ─── SEZIONE MOCKUPS ────────────────────────────────────────────────────── */
+.mockups {
+  padding: 6rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.mockups__header {
+  margin-bottom: 4rem;
+}
+
+.mockups__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #F5F5F0;
+  margin: 0.5rem 0 1rem;
+}
+
+.mockups__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+/* ─── GRIGLIA ────────────────────────────────────────────────────────────── */
+.mockups__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ─── CARD ───────────────────────────────────────────────────────────────── */
+.mockup-card {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.mockup-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+/* ─── BROWSER CHROME ─────────────────────────────────────────────────────── */
+.mockup-card__browser {
+  background: #0a0a0a;
+}
+
+.mockup-card__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  background: #161616;
+  border-bottom: 1px solid #222;
+}
+
+.mockup-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #333;
+  flex-shrink: 0;
+}
+
+.mockup-card__dot:nth-child(1) { background: #ff5f57; }
+.mockup-card__dot:nth-child(2) { background: #febc2e; }
+.mockup-card__dot:nth-child(3) { background: #28c840; }
+
+.mockup-card__url {
+  font-family: 'Inter', monospace;
+  font-size: 0.6rem;
+  color: #444;
+  margin-left: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* ─── SCHERMO ────────────────────────────────────────────────────────────── */
+.mockup-card__screen {
+  padding: 0;
+  min-height: 180px;
+}
+
+/* Hero block — sfondo accent */
+.mockup-card__block--hero {
+  background: color-mix(in srgb, var(--accent) 8%, #0a0a0a);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  padding: 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mockup-card__icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.mockup-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mockup-card__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.mockup-card__line {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+.mockup-card__line--title {
+  width: 65%;
+  opacity: 0.7;
+}
+
+.mockup-card__line--sub {
+  width: 45%;
+  opacity: 0.3;
+}
+
+/* Sezioni secondarie */
+.mockup-card__sections {
+  padding: 0.75rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mockup-card__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.mockup-card__section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.mockup-card__section-line {
+  height: 5px;
+  border-radius: 2px;
+  background: #2a2a2a;
+}
+
+/* ─── INFO ───────────────────────────────────────────────────────────────── */
+.mockup-card__info {
+  padding: 1rem 1rem 1.25rem;
+  border-top: 1px solid #1e1e1e;
+}
+
+.mockup-card__label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.mockup-card__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── CTA FINALE ─────────────────────────────────────────────────────────── */
+.mockups__cta {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+.mockups__cta-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .mockups__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .mockups__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mockups__cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}

@@ -39,7 +39,7 @@ export default function Navbar({ hidden }) {
   const links = [
     [t.nav.prezzi, "#prezzi"],
     [t.nav.processo, "#processo"],
-    [t.nav.progetti, "#progetti"],
+    // [t.nav.progetti, "#progetti"], // sezione Projects nascosta temporaneamente
     [t.nav.chiSono, "#chi-sono"],
     [t.nav.contatti, "#contatti"],
     [t.nav.faq, "#faq"],
